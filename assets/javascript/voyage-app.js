@@ -7,11 +7,11 @@ firebase.initializeApp(firebaseConfig);
 
 
 // VARIABLES
-var Vail = 0;
-var Vienna = 0;
-var SanDiego = 0;
-var Bahamas = 0;
-var Alaska = 0;
+var Vail = 1;
+var Vienna = 2;
+var SanDiego = 3;
+var Bahamas = 4;
+var Alaska = 5;
 var something = 0; // just for testing
 
 var arrDestinations = [Vail, Vienna, SanDiego, Bahamas, Alaska];
@@ -89,7 +89,12 @@ function checkSurveyRadioButtons() {
     // TODO: push each destination variable into array
 
     // TODO: sort array large to small to find winner/runner up
-    
+    arrDestinations.sort(); // sorts the array in ascending order
+    arrDestinations.reverse(); // then sorts in decending order (highest first)
+    for (var a of arrDestinations) {
+        console.log(a);
+    }
+
     // TODO: call function (need to create it) that displays travel destination stuff!
 
 
