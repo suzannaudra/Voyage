@@ -8,6 +8,11 @@ firebase.initializeApp(firebaseConfig);
 
 
 // VARIABLES
+var Vail 
+var Vienna
+var SanDiego
+var Bahamas
+var Alaska
 
 // FUNCTIONS
 $(document).ready(function(){
@@ -21,6 +26,7 @@ $('#pstart').on('click', function () {
     $('.surveyquestions').show();
     $('#pstart').remove();
 });
+
 
         
 
