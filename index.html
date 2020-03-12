@@ -1,20 +1,273 @@
 <!DOCTYPE html>
-<html lang="en-us">
+<html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
-    <title>Sign-Up Today!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Bootstrap -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <!-- firebase script references -->
-    <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
+    <head>
 
-</head>
+        <meta charset="UTF-8">
+        <title>Voyage</title>
+
+        <!-- Bootstrap -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+        <!-- firebase script references -->
+        <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
+
+    </head>
 
 <body>
+    <div class="container">
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#">Voyage</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact Us</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Our Team Members
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">Suzann Kowalski</a>
+                            <a class="dropdown-item" href="#">David Flores</a>
+                            <a class="dropdown-item" href="#">Thuy Nguyen</a>
+                            <a class="dropdown-item" href="#">Sandesh Charka</a>
+
+                        </div>
+                    </li>
+
+                </ul>
+                <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>
+            </div>
+        </nav>
+        <h1>What type of voyage would you like to take?</h1>
+        <br>
+        <br>
+        <h3 class="question">What type of vacation are you interested in?</h3>
+        <div class="btn-group-lg btn-group" data-toggle="buttons">
+            <row>
+                <div class="col-lg-6">
+                    <label class="btn btn-primary">
+                        <input type="radio" name="options" id="option1"> Adventure
+                    </label>
+                </div>
+                <!--<span>or</span>-->
+                <div class="col-lg-6">
+                    <label class="btn btn-primary">
+                        <input type="radio" name="options" id="option2"> Relaxation
+                    </label>
+                </div>
+                <div class="col-lg-6">
+                    <label class="btn btn-primary">
+                        <input type="radio" name="options" id="option2"> Combination Adventure and Relaxation
+                    </label>
+                </div>
+                <h3 class="question">What type of climate do you prefer for your voyage?</h3>
+                <div class="btn-group-lg btn-group" data-toggle="buttons">
+                    <row>
+                        <div class="col-lg-6">
+                            <label class="btn btn-primary">
+                                <input type="radio" name="options" id="option1"> Sunshine
+                            </label>
+                        </div>
+                        <!--<span>or</span>-->
+                        <div class="col-lg-6">
+                            <label class="btn btn-primary">
+                                <input type="radio" name="options" id="option2"> Snow
+                            </label>
+                        </div>
+                        <div class="col-lg-6">
+                            <label class="btn btn-primary">
+                                <input type="radio" name="options" id="option2"> Something in between Snow and Sun. Warm
+                                but
+                                not too hot or not freezing cold
+                            </label>
+                        </div>
+                        <h3 class="question">What is the closest match to your ideal voyage?</h3>
+                        <div class="btn-group-lg btn-group" data-toggle="buttons">
+                            <row>
+                                <div class="col-lg-6">
+                                    <label class="btn btn-primary">
+                                        <input type="radio" name="options" id="option1"> Beach
+                                    </label>
+                                </div>
+                                <!--<span>or</span>-->
+                                <div class="col-lg-6">
+                                    <label class="btn btn-primary">
+                                        <input type="radio" name="options" id="option2"> Ski Slopes
+                                    </label>
+                                </div>
+                                <div class="col-lg-6">
+                                    <label class="btn btn-primary">
+                                        <input type="radio" name="options" id="option2"> Hiking in the Wilderness
+                                    </label>
+                                </div>
+                                <div class="col-lg-6">
+                                    <label class="btn btn-primary">
+                                        <input type="radio" name="options" id="option2"> Exploring City Life
+                                    </label>
+                                </div>
+                                <h3 class="question">What type of voyage sound ideal?</h3>
+                                <div class="btn-group-lg btn-group" data-toggle="buttons">
+                                    <row>
+                                        <div class="col-lg-6">
+                                            <label class="btn btn-primary">
+                                                <input type="radio" name="options" id="option1"> Learning about and
+                                                seeing
+                                                historical sights
+                                            </label>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <label class="btn btn-primary">
+                                                <input type="radio" name="options" id="option2"> Action adventures
+                                                exploring
+                                                on ATV's
+                                            </label>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <label class="btn btn-primary">
+                                                <input type="radio" name="options" id="option2"> Sitting by the pool,
+                                                soaking up the sun, and maybe getting a massage
+                                            </label>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <label class="btn btn-primary">
+                                                <input type="radio" name="options" id="option2"> Epic Nightlife:
+                                                Dancing,
+                                                Drinking, and Partying!
+                                            </label>
+                                        </div>
+                                        <h3 class="question">How far are you willing to travel?</h3>
+                                        <div class="btn-group-lg btn-group" data-toggle="buttons">
+                                            <row>
+                                                <div class="col-lg-6">
+                                                    <label class="btn btn-primary">
+                                                        <input type="radio" name="options" id="option1"> Short Flight
+                                                        less
+                                                        than 5 hours
+                                                    </label>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <label class="btn btn-primary">
+                                                        <input type="radio" name="options" id="option2"> Across the
+                                                        country
+                                                        more than 5 hours
+                                                    </label>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <label class="btn btn-primary">
+                                                        <input type="radio" name="options" id="option2"> Acrose the
+                                                        world
+                                                    </label>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <label class="btn btn-primary">
+                                                        <input type="radio" name="options" id="option2"> Anywhere
+                                                    </label>
+                                                </div>
+
+                                        </div>
+                                    </row>
+                            </row>
+                        </div>
+                    </row>
+                </div>
+            </row>
+        </div>
+        <section id="showCase">
+            <div class="card-deck">
+                <div class="card">
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
+                            additional content. This content is a little bit longer.</p>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">Last updated 3 mins ago</small>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">This card has supporting text below as a natural lead-in to additional
+                            content.</p>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">Last updated 3 mins ago</small>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
+                            additional content. This card has even longer content than the first to show that equal
+                            height action.</p>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">Last updated 3 mins ago</small>
+                    </div>
+                </div>
+
+            </div>
+            <div class="card-deck">
+                <div class="card">
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
+                            additional content. This content is a little bit longer.</p>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">Last updated 3 mins ago</small>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">This card has supporting text below as a natural lead-in to additional
+                            content.</p>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">Last updated 3 mins ago</small>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
+                            additional content. This card has even longer content than the first to show that equal
+                            height action.</p>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">Last updated 3 mins ago</small>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </div>
     <p>test test sandesh added this test test</p>
     <!-- script links -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
@@ -27,7 +280,8 @@
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
     </script>
 
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+    </script>
     <script type="text/javascript" src="assets/javascript/voyage-app.js"></script>
 </body>
 
