@@ -15,7 +15,7 @@ $(document).ready(function(){
 
 });
 // Hides start button and title after clicking start
-$('#start').on('click', function () {
+$('#pstart').on('click', function () {
     $('#start').remove();
     $('#heading').remove();
     $('.surveyquestions').show();
