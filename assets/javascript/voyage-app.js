@@ -82,9 +82,7 @@ function checkSurveyRadioButtons() {
         Alaska++;
         Vail++;
     };
-    if ($("#q5-acrossworld").is(':checked')) {
-        Vienna++;
-    };
+    if ($("#q5-acrossworld").is(':checked')) Vienna++;
 
     // TODO: push each destination variable into array
 
