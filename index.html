@@ -59,24 +59,25 @@
         </nav>
         <h1>What type of voyage would you like to take?</h1>
         <br>
+        <button id="test-button" class="btn btn-warning">test</button>
         <br>
         <h3 class="question">What type of vacation are you interested in?</h3>
         <div class="btn-group-lg btn-group" data-toggle="buttons">
             <row>
                 <div class="col-lg-6">
                     <label class="btn btn-primary">
-                        <input type="radio" name="options" id="option1"> Adventure
+                        <input type="radio" name="options" id="q1-adventure"> Adventure
                     </label>
                 </div>
                 <!--<span>or</span>-->
                 <div class="col-lg-6">
                     <label class="btn btn-primary">
-                        <input type="radio" name="options" id="option2"> Relaxation
+                        <input type="radio" name="options" id="q1-relaxation"> Relaxation
                     </label>
                 </div>
                 <div class="col-lg-6">
                     <label class="btn btn-primary">
-                        <input type="radio" name="options" id="option2"> Combination Adventure and Relaxation
+                        <input type="radio" name="options" id="q1-combo"> Combination Adventure and Relaxation
                     </label>
                 </div>
                 <h3 class="question">What type of climate do you prefer for your voyage?</h3>
@@ -84,18 +85,19 @@
                     <row>
                         <div class="col-lg-6">
                             <label class="btn btn-primary">
-                                <input type="radio" name="options" id="option1"> Sunshine
+                                <input type="radio" name="options" id="q2-sunshine"> Sunshine
                             </label>
                         </div>
                         <!--<span>or</span>-->
                         <div class="col-lg-6">
                             <label class="btn btn-primary">
-                                <input type="radio" name="options" id="option2"> Snow
+                                <input type="radio" name="options" id="q2-snow"> Snow
                             </label>
                         </div>
                         <div class="col-lg-6">
                             <label class="btn btn-primary">
-                                <input type="radio" name="options" id="option2"> Something in between Snow and Sun. Warm
+                                <input type="radio" name="options" id="q2-combo"> Something in between Snow and Sun.
+                                Warm
                                 but
                                 not too hot or not freezing cold
                             </label>
@@ -105,23 +107,23 @@
                             <row>
                                 <div class="col-lg-6">
                                     <label class="btn btn-primary">
-                                        <input type="radio" name="options" id="option1"> Beach
+                                        <input type="radio" name="options" id="q3-beach"> Beach
                                     </label>
                                 </div>
                                 <!--<span>or</span>-->
                                 <div class="col-lg-6">
                                     <label class="btn btn-primary">
-                                        <input type="radio" name="options" id="option2"> Ski Slopes
+                                        <input type="radio" name="options" id="q3-skislopes"> Ski Slopes
                                     </label>
                                 </div>
                                 <div class="col-lg-6">
                                     <label class="btn btn-primary">
-                                        <input type="radio" name="options" id="option2"> Hiking in the Wilderness
+                                        <input type="radio" name="options" id="q3-hiking"> Hiking in the Wilderness
                                     </label>
                                 </div>
                                 <div class="col-lg-6">
                                     <label class="btn btn-primary">
-                                        <input type="radio" name="options" id="option2"> Exploring City Life
+                                        <input type="radio" name="options" id="q3-explorecity"> Exploring City Life
                                     </label>
                                 </div>
                                 <h3 class="question">What type of voyage sound ideal?</h3>
@@ -129,27 +131,28 @@
                                     <row>
                                         <div class="col-lg-6">
                                             <label class="btn btn-primary">
-                                                <input type="radio" name="options" id="option1"> Learning about and
+                                                <input type="radio" name="options" id="q4-historical"> Learning about
+                                                and
                                                 seeing
                                                 historical sights
                                             </label>
                                         </div>
                                         <div class="col-lg-6">
                                             <label class="btn btn-primary">
-                                                <input type="radio" name="options" id="option2"> Action adventures
+                                                <input type="radio" name="options" id="q4-atv"> Action adventures
                                                 exploring
                                                 on ATV's
                                             </label>
                                         </div>
                                         <div class="col-lg-6">
                                             <label class="btn btn-primary">
-                                                <input type="radio" name="options" id="option2"> Sitting by the pool,
+                                                <input type="radio" name="options" id="q4-pool"> Sitting by the pool,
                                                 soaking up the sun, and maybe getting a massage
                                             </label>
                                         </div>
                                         <div class="col-lg-6">
                                             <label class="btn btn-primary">
-                                                <input type="radio" name="options" id="option2"> Epic Nightlife:
+                                                <input type="radio" name="options" id="q4-nightlife"> Epic Nightlife:
                                                 Dancing,
                                                 Drinking, and Partying!
                                             </label>
@@ -159,21 +162,24 @@
                                             <row>
                                                 <div class="col-lg-6">
                                                     <label class="btn btn-primary">
-                                                        <input type="radio" name="options" id="option1"> Short Flight
+                                                        <input type="radio" name="options" id="q5-shortflight"> Short
+                                                        Flight
                                                         less
                                                         than 5 hours
                                                     </label>
                                                 </div>
                                                 <div class="col-lg-6">
                                                     <label class="btn btn-primary">
-                                                        <input type="radio" name="options" id="option2"> Across the
+                                                        <input type="radio" name="options" id="q5-acrosscountry"> Across
+                                                        the
                                                         country
                                                         more than 5 hours
                                                     </label>
                                                 </div>
                                                 <div class="col-lg-6">
                                                     <label class="btn btn-primary">
-                                                        <input type="radio" name="options" id="option2"> Acrose the
+                                                        <input type="radio" name="options" id="q5-acrossworld"> Acrose
+                                                        the
                                                         world
                                                     </label>
                                                 </div>
@@ -194,7 +200,7 @@
         <section id="showCase">
             <div class="card-deck">
                 <div class="card">
-                    <img src="..." class="card-img-top" alt="...">
+                    <img src="#" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">Card title</h5>
                         <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
@@ -268,7 +274,7 @@
             </div>
         </section>
     </div>
-    <p>test test sandesh added this test test</p>
+
     <!-- script links -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
