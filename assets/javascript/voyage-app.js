@@ -1,3 +1,4 @@
+
 // Initialize Firebase
 var firebaseConfig = {
     apiKey: "AIzaSyA7yTHFyRl7s6ZvTvQ-chYiE5flrw8NJ0g",
@@ -14,6 +15,11 @@ firebase.initializeApp(firebaseConfig);
 
 
 // VARIABLES
+var Vail 
+var Vienna
+var SanDiego
+var Bahamas
+var Alaska
 
 // webcam api key (owner: Thuy)
 var webcamApiKey = "QwMvscmcOAV4Xsn2Hr6N9MNJ1dGAGGLO";
