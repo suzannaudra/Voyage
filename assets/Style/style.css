@@ -1,3 +1,7 @@
 span {
     margin: 10px;
 }
+
+.card-deck {
+    margin: 20px auto;
+}
