@@ -14,7 +14,7 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 
-// VARIABLES
+// VARIABLES -------------
 var Vail 
 var Vienna
 var SanDiego
@@ -22,10 +22,10 @@ var Bahamas
 var Alaska
 
 // webcam api key (owner: Thuy)
-var webcamApiKey = "QwMvscmcOAV4Xsn2Hr6N9MNJ1dGAGGLO";
+const webcamApiKey = "QwMvscmcOAV4Xsn2Hr6N9MNJ1dGAGGLO";
 
 // save destination vars in object for sorting/ranking
-var destinations = {
+const destinations = {
     Vail: 0,
     Vienna: 0,
     SanDiego: 0,
@@ -33,7 +33,75 @@ var destinations = {
     Alaska: 0
 };
 
+const destCoordinates = {
+    Vail:       "39.64,-106.38,50",
+    Vienna:     "48.21,16.37,50",
+    SanDiego:   "32.72,-117.15,50",
+    Bahamas:    "24.65,-78.04,500",
+    Alaska:     "61.54,-149.56,500" // Anchorage
+}
 
+// TODO: work in progress (dflores): building element to display webcams dynamically
+var $webcamCard = $("<div>").attr({"class":"card","id":"webcam-card"}).append(
+        $("<img>").attr({"class":"card-img-top"}).append(
+            $("<div>").attr({"class":"card-body","id":"webcam-card-body"}).append(
+                $("<p>").attr("class","card-text").text("")
+            )
+        )    
+)
+
+
+// FUNCTIONS -------------
+
+// function to get and display webcams; 
+// destName input is destination string name (see switch statement below);
+// switch will load the coordinates/radius to find webcams "nearby"
+function getWebcams(destName1, destName2){
+    let coors = "";
+
+    switch (destName1) {
+        case "Vail": coors = destCoordinates.Vail; break;
+        case "Vienna": coors = destCoordinates.Vienna; break;
+        case ("SanDiego" ||  "San Diego"): coors = destCoordinates.SanDiego; break;
+        case "Bahamas": coors = destCoordinates.Bahamas; break;
+        case "Alaska": coors = destCoordinates.Alaska; break;
+        default: coors = "21.32,-157.82,100" // defaults to Hawaii (just because, no particular reason);
+    }
+    // use the 'nearby' modifier to return webcams within certain radios of lattitude, longitutde
+    let path = "nearby=" + coors + // latitude,longitude,radius
+        "/orderby=popularity" + // order by popularity
+        "/limit=5" + // limit to five
+        "?show=webcams:image"// localize language to English if available 
+    let queryURL = "https://api.windy.com/api/webcams/v2/list/" + path
+    $.ajax({
+        url: queryURL,
+        method: "GET",
+        headers: {"x-windy-key": webcamApiKey}
+    }).then(function (response) {
+        // do stuff after getting back response 
+        // if(response.result.webcams.length > 0) {};
+        console.log(response.result.webcams.length);
+
+        if (response.result.webcams.length > 0){
+            // at least one webcam found, loop through the results and display thumbnails (for now)
+            for (var w of response.result.webcams){
+                console.log(w, response.result.webcams.indexOf(w));
+                $("#showCase").append($("<img>").attr({
+                    "id":response.result.webcams.indexOf(w),
+                    "class":"img-thumbnail",
+                    "src":w.image.current.thumbnail,
+                    "alt":w.image.current.title}));
+            }
+        } else {
+            // no webcams found :(
+                // TODO: display message or retry api request with larger radius / alternate location?
+        }
+
+    });
+}
+
+
+=======
 // FUNCTIONS
 
 function getWebcams(){
@@ -53,6 +121,7 @@ function getWebcams(){
        
     });
 }
+
 
 function checkSurveyRadioButtons() {
     var destWinner = "";
@@ -178,7 +247,11 @@ $('#test-button').on('click', function () {
 
 $('#webcam-test-button').on('click', function (e) {
     e.preventDefault();
-    getWebcams();
+
+    let dest1 = ""; let dest2 = ""; // destination names (to be determined from survey eventually)
+    getWebcams(dest1, dest2);
+
+
 });
 
-// INITIALIZE/MAIN 
+// INITIALIZE/MAIN -------------
