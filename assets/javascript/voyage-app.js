@@ -1,3 +1,4 @@
+
 // Initialize Firebase
 var firebaseConfig = {
     apiKey: "AIzaSyA7yTHFyRl7s6ZvTvQ-chYiE5flrw8NJ0g",
@@ -14,17 +15,22 @@ firebase.initializeApp(firebaseConfig);
 
 
 // VARIABLES
+var Vail 
+var Vienna
+var SanDiego
+var Bahamas
+var Alaska
 
 // webcam api key (owner: Thuy)
 var webcamApiKey = "QwMvscmcOAV4Xsn2Hr6N9MNJ1dGAGGLO";
 
 // save destination vars in object for sorting/ranking
 var destinations = {
-    Vail:       0,
-    Vienna:     0,
-    SanDiego:   0,
-    Bahamas:    0,
-    Alaska:     0
+    Vail: 0,
+    Vienna: 0,
+    SanDiego: 0,
+    Bahamas: 0,
+    Alaska: 0
 };
 
 
@@ -53,16 +59,26 @@ function checkSurveyRadioButtons() {
     var destRunnerup = "";
 
     // tally the survey results into destination vars
-    if ($("#q1-adventure").is(':checked')) {destinations.Vail++;};
-    if ($("#q1-relaxation").is(':checked')) {destinations.Bahamas++;};
-    if ($("#q1-combo").is(':checked')) {destinations.Vienna++;};
+    if ($("#q1-adventure").is(':checked')) {
+        destinations.Vail++;
+    };
+    if ($("#q1-relaxation").is(':checked')) {
+        destinations.Bahamas++;
+    };
+    if ($("#q1-combo").is(':checked')) {
+        destinations.Vienna++;
+    };
 
-    if ($("#q2-sunshine").is(':checked')) {destinations.Bahamas++;};
-    if ($("#q2-snow").is(':checked')){
+    if ($("#q2-sunshine").is(':checked')) {
+        destinations.Bahamas++;
+    };
+    if ($("#q2-snow").is(':checked')) {
         destinations.Alaska++;
         destinations.Vail++;
     };
-    if ($("#q2-combo").is(':checked')) {destinations.Vail++;};
+    if ($("#q2-combo").is(':checked')) {
+        destinations.Vail++;
+    };
 
     if ($("#q3-beach").is(':checked')) {
         destinations.SanDiego++;
@@ -96,29 +112,42 @@ function checkSurveyRadioButtons() {
         destinations.Vienna++;
         destinations.SanDiego++;
     };
-    if ($("#q5-shortflight").is(':checked')) {destinations.SanDiego++};
+    if ($("#q5-shortflight").is(':checked')) {
+        destinations.SanDiego++
+    };
     if ($("#q5-acrosscountry").is(':checked')) {
         destinations.Alaska++;
         destinations.Vail++;
     };
-    if ($("#q5-acrossworld").is(':checked')) {destinations.Vienna++;}
+    if ($("#q5-acrossworld").is(':checked')) {
+        destinations.Vienna++;
+    }
     // Sorting the scores to rank the destinations...
     //  Object.entries saves each destination:score (key:value) pair into 
     //  an array so we can sort by the score values (sorting objects by their properties
     //  requires a little extra effort)
     let toBeSorted = Object.entries(destinations);
-        // example: toBeSorted = [ ["Bahamas", 4], ["Vail", 5]...]
-    let sorted = toBeSorted.sort(function(x, y){return y[1] - x[1]}); // sorts the score values in decending order (rank high-low)
-        // example: sorted = [ ["Vail", 5], ["Bahamas",4]...]
+    // example: toBeSorted = [ ["Bahamas", 4], ["Vail", 5]...]
+    let sorted = toBeSorted.sort(function (x, y) {
+        return y[1] - x[1]
+    }); // sorts the score values in decending order (rank high-low)
+    // example: sorted = [ ["Vail", 5], ["Bahamas",4]...]
 
     for (var i of sorted) {
         // i = each [destination, score] array inside the "sorted" array 
         console.log(i[0], i[1]); // displays destination name (index 0) and score (index 1)
-        
-        if(sorted.indexOf(i)==0){destWinner = i[0];};
-        if(sorted.indexOf(i)==1){destRunnerup = i[0];};
-        if(sorted.indexOf(i)+1 === 2){break;} // breaks the loop after top two destinations: winner & runner up
-        
+
+
+        if (sorted.indexOf(i) == 0) {
+            destWinner = i[0];
+        };
+        if (sorted.indexOf(i) == 1) {
+            destRunnerup = i[0];
+        };
+        if (sorted.indexOf(i) + 1 === 2) {
+            break;
+        } // breaks the loop after top two destinations: winner & runner up
+
     }
     // this is winner
     destWinner;
