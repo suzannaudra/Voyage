@@ -100,29 +100,6 @@ function getWebcams(destName1, destName2){
     });
 }
 
-
-=======
-// FUNCTIONS
-
-function getWebcams(){
-    let path = "nearby=25.03,77.39" + // Bahamas latitude,longitude
-        ",1000" + // radius is 250km
-        "/orderby=popularity" + // order by popularity
-        "/limit=5" + // limit to five
-        "?show=webcams:image"// localize language to English if available 
-    let queryURL = "https://api.windy.com/api/webcams/v2/list/" + path
-    $.ajax({
-        url: queryURL,
-        method: "GET",
-        headers: {"x-windy-key": webcamApiKey}
-    }).then(function (response) {
-        console.log(response);
-        // do stuff after getting back response 
-       
-    });
-}
-
-
 function checkSurveyRadioButtons() {
     var destWinner = "";
     var destRunnerup = "";
