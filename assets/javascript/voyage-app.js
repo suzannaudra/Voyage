@@ -20,17 +20,19 @@ var webcamApiKey = "QwMvscmcOAV4Xsn2Hr6N9MNJ1dGAGGLO";
 
 // save destination vars in object for sorting/ranking
 var destinations = {
-    Vail:       1,
-    Vienna:     2,
-    SanDiego:   5,
-    Bahamas:    4,
-    Alaska:     3
+    Vail:       0,
+    Vienna:     0,
+    SanDiego:   0,
+    Bahamas:    0,
+    Alaska:     0
 };
 
 
 // FUNCTIONS
 function checkSurveyRadioButtons() {
-    
+    var destWinner = "";
+    var destRunnerup = "";
+
     // tally the survey results into destination vars
     if ($("#q1-adventure").is(':checked')) {destinations.Vail++;};
     if ($("#q1-relaxation").is(':checked')) {destinations.Bahamas++;};
@@ -89,12 +91,20 @@ function checkSurveyRadioButtons() {
         // example: toBeSorted = [ ["Bahamas", 4], ["Vail", 5]...]
     let sorted = toBeSorted.sort(function(x, y){return y[1] - x[1]}); // sorts the score values in decending order (rank high-low)
         // example: sorted = [ ["Vail", 5], ["Bahamas",4]...]
-    for (var i of sorted) {
-        // i = each [destination, score] array inside the "sorted" array
-        console.log(i[0], i[1]); // displays destination name (index 0) and score (index 1)
-        if(sorted.indexOf(i)+1 === 2){break;} // breaks the loop after top two destinations: winner & runner up
-    }
 
+    for (var i of sorted) {
+        // i = each [destination, score] array inside the "sorted" array 
+        console.log(i[0], i[1]); // displays destination name (index 0) and score (index 1)
+        
+        if(sorted.indexOf(i)=0){destWinner = i[0];};
+        if(sorted.indexOf(i)=1){destRunnerup = i[0];};
+        if(sorted.indexOf(i)+1 === 2){break;} // breaks the loop after top two destinations: winner & runner up
+        
+    }
+    // this is winner
+    destWinner;
+    // this is runner-up
+    destRunnerup;
     // TODO: call function (need to create it) that displays travel destination stuff!
 
 
