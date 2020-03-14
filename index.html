@@ -15,48 +15,49 @@
         <!-- firebase script references -->
         <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-app.js"></script>
         <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
+        <link rel="stylesheet" href="assets/Style/style.css">
 
     </head>
 
 <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <a class="navbar-brand" href="#">Voyage</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contact.html">Contact Us</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Our Team Members
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="https://github.com/suzannaudra">Suzann Kowalski</a>
+                        <a class="dropdown-item" href="https://github.com/broken-guitar">David Flores</a>
+                        <a class="dropdown-item" href="https://github.com/thuynguyen-nht">Thuy Nguyen</a>
+                        <a class="dropdown-item" href="https://github.com/SandeshCharka">Sandesh Charka</a>
+
+                    </div>
+                </li>
+
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
     <div class="container">
 
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="#">Voyage</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="contact.html">Contact Us</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Our Team Members
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Suzann Kowalski</a>
-                            <a class="dropdown-item" href="#">David Flores</a>
-                            <a class="dropdown-item" href="#">Thuy Nguyen</a>
-                            <a class="dropdown-item" href="#">Sandesh Charka</a>
-
-                        </div>
-                    </li>
-
-                </ul>
-                <form class="form-inline my-2 my-lg-0">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                </form>
-            </div>
-        </nav>
         <h1>What type of voyage would you like to take?</h1>
         <br>
         <button id="test-button" class="btn btn-warning">test</button>
@@ -249,6 +250,7 @@
                 </div>
 
             </div>
+
             <div class="card-deck">
                 <div class="card">
                     <img src="https://www.hotelpalomar-sandiego.com/images/1700-960/istock-833705372-4410d5d4.jpg"

@@ -1,4 +1,3 @@
-
 // Initialize Firebase
 var firebaseConfig = {
     apiKey: "AIzaSyA7yTHFyRl7s6ZvTvQ-chYiE5flrw8NJ0g",
@@ -14,6 +13,7 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 
+
 // VARIABLES -------------
 var Vail 
 var Vienna
@@ -22,7 +22,10 @@ var Bahamas
 var Alaska
 
 // webcam api key (owner: Thuy)
-const webcamApiKey = "QwMvscmcOAV4Xsn2Hr6N9MNJ1dGAGGLO";
+
+var webcamApiKey = config.webcamApiKey;
+var googleMapAPI = config.googleMapAPI;
+
 
 // save destination vars in object for sorting/ranking
 const destinations = {
@@ -40,6 +43,7 @@ const destCoordinates = {
     Bahamas:    "24.65,-78.04,500",
     Alaska:     "61.54,-149.56,500" // Anchorage
 }
+
 
 // TODO: work in progress (dflores): building element to display webcams dynamically
 var $webcamCard = $("<div>").attr({"class":"card","id":"webcam-card"}).append(
@@ -69,16 +73,20 @@ function getWebcams(destName1, destName2){
     }
     // use the 'nearby' modifier to return webcams within certain radios of lattitude, longitutde
     let path = "nearby=" + coors + // latitude,longitude,radius
+
         "/orderby=popularity" + // order by popularity
         "/limit=5" + // limit to five
-        "?show=webcams:image"// localize language to English if available 
+        "?show=webcams:image" // localize language to English if available 
     let queryURL = "https://api.windy.com/api/webcams/v2/list/" + path
     $.ajax({
         url: queryURL,
         method: "GET",
-        headers: {"x-windy-key": webcamApiKey}
+        headers: {
+            "x-windy-key": webcamApiKey
+        }
     }).then(function (response) {
         // do stuff after getting back response 
+
         // if(response.result.webcams.length > 0) {};
         console.log(response.result.webcams.length);
 
@@ -96,6 +104,7 @@ function getWebcams(destName1, destName2){
             // no webcams found :(
                 // TODO: display message or retry api request with larger radius / alternate location?
         }
+
 
     });
 }
@@ -231,4 +240,6 @@ $('#webcam-test-button').on('click', function (e) {
 
 });
 
+
 // INITIALIZE/MAIN -------------
+
