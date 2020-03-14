@@ -1,4 +1,3 @@
-
 // Initialize Firebase
 var firebaseConfig = {
     apiKey: "AIzaSyA7yTHFyRl7s6ZvTvQ-chYiE5flrw8NJ0g",
@@ -15,14 +14,15 @@ firebase.initializeApp(firebaseConfig);
 
 
 // VARIABLES
-var Vail 
+var Vail
 var Vienna
 var SanDiego
 var Bahamas
 var Alaska
 
 // webcam api key (owner: Thuy)
-var webcamApiKey = "QwMvscmcOAV4Xsn2Hr6N9MNJ1dGAGGLO";
+var webcamApiKey = config.webcamApiKey;
+var googleMapAPI = config.googleMapAPI;
 
 // save destination vars in object for sorting/ranking
 var destinations = {
@@ -36,21 +36,23 @@ var destinations = {
 
 // FUNCTIONS
 
-function getWebcams(){
+function getWebcams() {
     let path = "nearby=25.03,77.39" + // Bahamas latitude,longitude
         ",1000" + // radius is 250km
         "/orderby=popularity" + // order by popularity
         "/limit=5" + // limit to five
-        "?show=webcams:image"// localize language to English if available 
+        "?show=webcams:image" // localize language to English if available 
     let queryURL = "https://api.windy.com/api/webcams/v2/list/" + path
     $.ajax({
         url: queryURL,
         method: "GET",
-        headers: {"x-windy-key": webcamApiKey}
+        headers: {
+            "x-windy-key": webcamApiKey
+        }
     }).then(function (response) {
         console.log(response);
         // do stuff after getting back response 
-       
+
     });
 }
 
