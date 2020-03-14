@@ -29,6 +29,25 @@ var destinations = {
 
 
 // FUNCTIONS
+
+function getWebcams(){
+    let path = "nearby=25.03,77.39" + // Bahamas latitude,longitude
+        ",1000" + // radius is 250km
+        "/orderby=popularity" + // order by popularity
+        "/limit=5" + // limit to five
+        "?show=webcams:image"// localize language to English if available 
+    let queryURL = "https://api.windy.com/api/webcams/v2/list/" + path
+    $.ajax({
+        url: queryURL,
+        method: "GET",
+        headers: {"x-windy-key": webcamApiKey}
+    }).then(function (response) {
+        console.log(response);
+        // do stuff after getting back response 
+       
+    });
+}
+
 function checkSurveyRadioButtons() {
     var destWinner = "";
     var destRunnerup = "";
@@ -96,8 +115,8 @@ function checkSurveyRadioButtons() {
         // i = each [destination, score] array inside the "sorted" array 
         console.log(i[0], i[1]); // displays destination name (index 0) and score (index 1)
         
-        if(sorted.indexOf(i)=0){destWinner = i[0];};
-        if(sorted.indexOf(i)=1){destRunnerup = i[0];};
+        if(sorted.indexOf(i)==0){destWinner = i[0];};
+        if(sorted.indexOf(i)==1){destRunnerup = i[0];};
         if(sorted.indexOf(i)+1 === 2){break;} // breaks the loop after top two destinations: winner & runner up
         
     }
@@ -111,14 +130,10 @@ function checkSurveyRadioButtons() {
 
 }
 
-
-
 $(document).ready(function () {
     $('.surveyquestions').hide();
 
 });
-
-
 
 // Hides start button and title after clicking start
 $('#pstart').on('click', function () {
@@ -132,5 +147,9 @@ $('#test-button').on('click', function () {
     checkSurveyRadioButtons();
 });
 
+$('#webcam-test-button').on('click', function (e) {
+    e.preventDefault();
+    getWebcams();
+});
 
 // INITIALIZE/MAIN 
