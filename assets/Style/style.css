@@ -5,3 +5,26 @@ span {
 .card-deck {
     margin: 20px auto;
 }
+
+.webcam-title, .webcam-text{
+    background-color: #d1d1d14f;
+}
+
+.spinner-border{
+
+}
+
+/* adjust webcam title size on smaller screen*/
+@media (max-width: 480px){
+    .webcam-title{
+      font-size: 16px !important;
+      line-height: 16px !important;
+    }
+
+    .webcam-text{
+        font-size: 12px !important;
+        line-height: 12px !important;
+    }
+
+
+  } 

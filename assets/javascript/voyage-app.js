@@ -11,8 +11,7 @@ var firebaseConfig = {
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
-
-
+var db = firebase.database();
 
 // VARIABLES -------------
 var destinationRecommendations = [];
@@ -29,7 +28,8 @@ const destinations = {
     Vienna: 0,
     SanDiego: 0,
     Bahamas: 0,
-    Alaska: 0
+    Alaska: 0,
+    Newport: 0
 };
 
 // hard coding lattitude,longitutde,radius(km) of each destination
@@ -38,34 +38,40 @@ const destCoordinates = {
     Vienna:     "48.21,16.37,50",
     SanDiego:   "32.72,-117.15,50",
     Bahamas:    "24.65,-78.04,500",
-    Alaska:     "61.54,-149.56,500" // Anchorage
+    Alaska:     "61.54,-149.56,500", // Anchorage
+    Newport:    "41.50,-71.31,50"
 }
+
+var clickedDestination;
 
 // FUNCTIONS -------------
 
 // function to get and display webcams based on selected destination name: 
 function getWebcams(destName1, destName2){
     let coors = "";
+    $("#webcam-spinner").show();
     // switch will assign the coordinates from the destCoordinations object
     switch (destName1) {
         case "Vail": coors = destCoordinates.Vail; break;
         case "Vienna": coors = destCoordinates.Vienna; break;
-        case ("SanDiego" ||  "San Diego"): coors = destCoordinates.SanDiego; break;
+        case "San Diego": coors = destCoordinates.SanDiego; break;
         case "Bahamas": coors = destCoordinates.Bahamas; break;
         case "Alaska": coors = destCoordinates.Alaska; break;
+        case "Newport": coors = destCoordinates.Newport; break;
         default: coors = "21.32,-157.82,100" // defaults to Hawaii (just because, no particular reason);
     }
     // use the 'nearby' modifier to return webcams within specified radius of lattitude, longitutde coordinate
     let path = "nearby=" + coors + // coors = "latitude,longitude,radius"
         // "/category=beach + 
         "/orderby=popularity,desc" + // order webcams by most popular
-        "/limit=5" + // limit number of webcams
+        "/limit=8" + // limit number of webcams
         "?show=webcams:image,player,property,location,category&lang=en" // shows webcam image
     let queryURL = "https://api.windy.com/api/webcams/v2/list/" + path
     $.ajax({
         url: queryURL,
         method: "GET",
-        headers: {"x-windy-key": webcamApiKey}
+        headers: {"x-windy-key": webcamApiKey},
+        timeout: 3000
     }).then(function (response) {
         // do stuff after getting back response 
         console.log("response: ", response);
@@ -83,16 +89,17 @@ function getWebcams(destName1, destName2){
                     w.title, // card title
                     w.location.country); // card text
                 $("#webcam-container").append($newWebcamCard);
+                $("#webcam-spinner").hide();
 
-                // $("#showCase").append($("<img>").attr({
-                //     "id":response.result.webcams.indexOf(w),
-                //     "class":"img-thumbnail",
-                //     "src":w.image.current.thumbnail,
-                //     "alt":w.image.current.title}));
             }
         } else {
-            // no webcams found :(
-                // TODO: display message or retry api request with larger radius / alternate location?
+            // display 'no webcams found' message
+            $("#webcam-container").append($("<h1>")
+                .attr("class","display-4 col-12 mt-5 pt-5 text-left text-secondary")
+                .text("No webcams found :("));
+            $("#webcam-spinner").hide();
+                
+        
         }
     });
 }
@@ -186,15 +193,14 @@ function checkSurveyRadioButtons() {
 
 $(document).ready(function () {
     $('.surveyquestions').hide();
-
-    // check if the destination.html page loaded
+    $("#webcam-spinner").hide();
+    // load webcams when the 'destination.html page' is loaded
     if(/destination.html/i.test(window.location.href)){
-        // find webcams when the destination page loads
-        let destination = $(".card-text").text();
+        // load the selected destination from sessionStorage
+        let destination = sessionStorage.getItem("clickedDestination");
+        console.log("selected destination: ", destination);
         getWebcams(destination);
     }
-    
-
 });
 
 // Hides start button and title after clicking start
@@ -209,29 +215,31 @@ $('#test-button').on('click', function () {
     checkSurveyRadioButtons();
 });
 
-// attempt to change preview image to player (ran into CORBS error; doesn't work)
-// $("#webcam-container").on({
-//     mouseenter: function () {
-//         // ...when mouse over
-//         let $img = $(this).children("img");
-//         $img.attr("src",$img.attr("data-player-url"));
-//     },
-//     mouseleave: function () {
-//         // ...when mouse leaves
-//         let $img = $(this).children("img");
-//         $img.attr("src",$img.attr("data-preview-url"));
-//     }
-// }, ".webcam-card");
+$(".card").on("click", function(e){
+    e.preventDefault;
+    // save the clicked card's destination name to sessionStorage, 
+    // so it can be retrieved by the destination.html page (otherwise it'll get erased on page load)
+    clickedDestination = $(this).find(".card-title").text().trim();
+    sessionStorage.setItem("clickedDestination", clickedDestination);
+});
+
+// loads webcam player in new tab
+$("#webcam-container").on("click", ".webcam-card", function() {
+    let $img = $(this).children("img.card-img");
+    let playerUrl = $img.attr("data-player-url");
+    window.open(playerUrl);
+})
+
 // INITIALIZE/MAIN -------------
 
-// MORE FUNCTIONS
 
-// function to make the webcam card elements;
-// uses a background image with text overlay style
+// MORE FUNCTIONS DOWN HERE
+
+// function to display webcam card elements;
 function makeWebcamCard(id, preview, playerUrl, alt, title, text) {
     let $cardDiv = $("<div>", {
             id: id,
-            class: "card bg-dark text-white d-inline-block w-25 webcam-card"
+            class: "text-white col-lg-3 col-md-6 mt-4 webcam-card"
             // style: "width: 16rem;"
          });
     let $cardImg = $("<img>", {
@@ -248,11 +256,11 @@ function makeWebcamCard(id, preview, playerUrl, alt, title, text) {
         });
     let $cardTitle = $("<h5>", {
             id: id+"card-title",
-            class: "card-title",
+            class: "card-title webcam-title d-table",
             text: title
         });
     let $cardText = $("<p>", {
-            class: "card-text",
+            class: "card-text webcam-text d-table",
             text: text
         });
     $cardDiv.append($cardImg);
