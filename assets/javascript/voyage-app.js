@@ -34,31 +34,52 @@ const destinations = {
 
 // hard coding lattitude,longitutde,radius(km) of each destination
 const destCoordinates = {
-    Vail:       "39.64,-106.38,50",
-    Vienna:     "48.21,16.37,50",
-    SanDiego:   "32.72,-117.15,50",
-    Bahamas:    "24.65,-78.04,500",
-    Alaska:     "61.54,-149.56,500", // Anchorage
-    Newport:    "41.50,-71.31,50"
+    Vail: "39.64,-106.38,50",
+    Vienna: "48.21,16.37,50",
+    SanDiego: "32.72,-117.15,50",
+    Bahamas: "24.65,-78.04,500",
+    Alaska: "61.54,-149.56,500", // Anchorage
+    Newport: "41.50,-71.31,50"
 }
 
 var clickedDestination;
 
 // FUNCTIONS -------------
-
+$(function () {
+    $(window).on('scroll', function () {
+        if ($(window).scrollTop() > 10) {
+            $('.navbar').addClass('active');
+        } else {
+            $('.navbar').removeClass('active');
+        }
+    });
+});
 // function to get and display webcams based on selected destination name: 
-function getWebcams(destName1, destName2){
+function getWebcams(destName1, destName2) {
     let coors = "";
     $("#webcam-spinner").show();
     // switch will assign the coordinates from the destCoordinations object
     switch (destName1) {
-        case "Vail": coors = destCoordinates.Vail; break;
-        case "Vienna": coors = destCoordinates.Vienna; break;
-        case "San Diego": coors = destCoordinates.SanDiego; break;
-        case "Bahamas": coors = destCoordinates.Bahamas; break;
-        case "Alaska": coors = destCoordinates.Alaska; break;
-        case "Newport": coors = destCoordinates.Newport; break;
-        default: coors = "21.32,-157.82,100" // defaults to Hawaii (just because, no particular reason);
+        case "Vail":
+            coors = destCoordinates.Vail;
+            break;
+        case "Vienna":
+            coors = destCoordinates.Vienna;
+            break;
+        case "San Diego":
+            coors = destCoordinates.SanDiego;
+            break;
+        case "Bahamas":
+            coors = destCoordinates.Bahamas;
+            break;
+        case "Alaska":
+            coors = destCoordinates.Alaska;
+            break;
+        case "Newport":
+            coors = destCoordinates.Newport;
+            break;
+        default:
+            coors = "21.32,-157.82,100" // defaults to Hawaii (just because, no particular reason);
     }
     // use the 'nearby' modifier to return webcams within specified radius of lattitude, longitutde coordinate
     let path = "nearby=" + coors + // coors = "latitude,longitude,radius"
@@ -70,16 +91,18 @@ function getWebcams(destName1, destName2){
     $.ajax({
         url: queryURL,
         method: "GET",
-        headers: {"x-windy-key": webcamApiKey},
+        headers: {
+            "x-windy-key": webcamApiKey
+        },
         timeout: 3000
     }).then(function (response) {
         // do stuff after getting back response 
         console.log("response: ", response);
 
-        if (response.result.webcams.length > 0){
+        if (response.result.webcams.length > 0) {
             // at least one webcam found
             // loop through webcams
-            for (var w of response.result.webcams){
+            for (var w of response.result.webcams) {
                 // NOTE: to get index of webcam: response.result.webcams.indexOf(w)
                 let $newWebcamCard = makeWebcamCard(
                     w.id, // webcam id as card id
@@ -95,11 +118,11 @@ function getWebcams(destName1, destName2){
         } else {
             // display 'no webcams found' message
             $("#webcam-container").append($("<h1>")
-                .attr("class","display-4 col-12 mt-5 pt-5 text-left text-secondary")
+                .attr("class", "display-4 col-12 mt-5 pt-5 text-left text-secondary")
                 .text("No webcams found :("));
             $("#webcam-spinner").hide();
-                
-        
+
+
         }
     });
 }
@@ -175,17 +198,21 @@ function checkSurveyRadioButtons() {
     // store the destination.scores properties to an array for sorting
     let toBeSorted = Object.entries(destinations); // example: toBeSorted = [ ["Bahamas", 4], ["Vail", 5]...]
     // sort the score values in decending order (rank high-low)
-    let sorted = toBeSorted.sort(function (x, y) { 
+    let sorted = toBeSorted.sort(function (x, y) {
         return y[1] - x[1]
-    }); 
-        
+    });
+
     // loop through the sorted array
     for (var i of sorted) {
-        if (sorted.indexOf(i) == 0) {destWinner = i[0];};
-        if (sorted.indexOf(i) == 1) {destRunnerup = i[0];};
-        if (sorted.indexOf(i) + 1 === 2){
+        if (sorted.indexOf(i) == 0) {
+            destWinner = i[0];
+        };
+        if (sorted.indexOf(i) == 1) {
+            destRunnerup = i[0];
+        };
+        if (sorted.indexOf(i) + 1 === 2) {
             break; // breaks the loop after top two destinations (winner & runner-up)
-        } 
+        }
     }
     // return the winner and runner-up in an array
     return [destWinner, destRunnerup]; // example: ["Vail", "Bahamas"]
@@ -195,7 +222,7 @@ $(document).ready(function () {
     $('.surveyquestions').hide();
     $("#webcam-spinner").hide();
     // load webcams when the 'destination.html page' is loaded
-    if(/destination.html/i.test(window.location.href)){
+    if (/destination.html/i.test(window.location.href)) {
         // load the selected destination from sessionStorage
         let destination = sessionStorage.getItem("clickedDestination");
         console.log("Bahamas", destination);
@@ -314,13 +341,14 @@ $('#pstart').on('click', function () {
     $('#heading').remove();
     $('.surveyquestions').show();
     $('#pstart').remove();
+    $('h1').remove();
 });
 
 $('#test-button').on('click', function () {
     checkSurveyRadioButtons();
 });
 
-$(".card").on("click", function(e){
+$(".card").on("click", function (e) {
     e.preventDefault;
     // save the clicked card's destination name to sessionStorage, 
     // so it can be retrieved by the destination.html page (otherwise it'll get erased on page load)
@@ -329,7 +357,7 @@ $(".card").on("click", function(e){
 });
 
 // loads webcam player in new tab
-$("#webcam-container").on("click", ".webcam-card", function() {
+$("#webcam-container").on("click", ".webcam-card", function () {
     let $img = $(this).children("img.card-img");
     let playerUrl = $img.attr("data-player-url");
     window.open(playerUrl);
@@ -343,34 +371,34 @@ $("#webcam-container").on("click", ".webcam-card", function() {
 // function to display webcam card elements;
 function makeWebcamCard(id, preview, playerUrl, alt, title, text) {
     let $cardDiv = $("<div>", {
-            id: id,
-            class: "text-white col-lg-3 col-md-6 mt-4 webcam-card"
-            // style: "width: 16rem;"
-         });
+        id: id,
+        class: "text-white col-lg-3 col-md-6 mt-4 webcam-card"
+        // style: "width: 16rem;"
+    });
     let $cardImg = $("<img>", {
-            id: id+"-card-img",
-            class: "card-img",
-            src: preview,
-            "data-preview-url": preview,
-            "data-player-url": playerUrl,
-            alt: alt
-        });
+        id: id + "-card-img",
+        class: "card-img",
+        src: preview,
+        "data-preview-url": preview,
+        "data-player-url": playerUrl,
+        alt: alt
+    });
     let $cardOverlay = $("<div>", {
-            id: id+"-card-img-overlay",
-            class: "card-img-overlay"
-        });
+        id: id + "-card-img-overlay",
+        class: "card-img-overlay"
+    });
     let $cardTitle = $("<h5>", {
-            id: id+"card-title",
-            class: "card-title webcam-title d-table",
-            text: title
-        });
+        id: id + "card-title",
+        class: "card-title webcam-title d-table",
+        text: title
+    });
     let $cardText = $("<p>", {
-            class: "card-text webcam-text d-table",
-            text: text
-        });
+        class: "card-text webcam-text d-table",
+        text: text
+    });
     $cardDiv.append($cardImg);
     $cardDiv.append($cardOverlay);
     $cardOverlay.append($cardTitle);
     $cardOverlay.append($cardText);
     return $cardDiv;
-  }
+}
