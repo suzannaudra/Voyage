@@ -219,7 +219,7 @@ function checkSurveyRadioButtons() {
 }
 
 $(document).ready(function () {
-    $('.surveyquestions').hide();
+    $('.content').hide();
     $("#webcam-spinner").hide();
     // load webcams when the 'destination.html page' is loaded
     if (/destination.html/i.test(window.location.href)) {
@@ -230,16 +230,25 @@ $(document).ready(function () {
         // make destination block
 
         if (destination == "Bahamas") {
-            let carouselitem1 = $("<div>").attr("class","carousel-item active");
-            let imgitem1 = $("<img>").attr({"class":"d-block w-100","src":"https://i2.wp.com/fishingbooker.com/blog/media/Fishing-in-the-Bahamas.jpg?resize=1024%2C683&ssl=1"});
+            let carouselitem1 = $("<div>").attr("class", "carousel-item active");
+            let imgitem1 = $("<img>").attr({
+                "class": "d-block w-100",
+                "src": "https://i2.wp.com/fishingbooker.com/blog/media/Fishing-in-the-Bahamas.jpg?resize=1024%2C683&ssl=1"
+            });
             carouselitem1.append(imgitem1);
             $('.carousel-inner').append(carouselitem1);
-            let carouselitem2 = $("<div>").attr("class","carousel-item");
-            let imgitem2 = $("<img>").attr({"class":"d-block w-100","src":"https://www.fodors.com/wp-content/uploads/2018/03/Ultimate-Things-To-Do-Bahamas-Hero.jpg"});
+            let carouselitem2 = $("<div>").attr("class", "carousel-item");
+            let imgitem2 = $("<img>").attr({
+                "class": "d-block w-100",
+                "src": "https://www.fodors.com/wp-content/uploads/2018/03/Ultimate-Things-To-Do-Bahamas-Hero.jpg"
+            });
             carouselitem2.append(imgitem2);
             $('.carousel-inner').append(carouselitem2);
-            let carouselitem3 = $("<div>").attr("class","carousel-item");
-            let imgitem3 = $("<img>").attr({"class":"d-block w-100","src":"https://q-cf.bstatic.com/images/hotel/max1024x768/147/147871201.jpg"});
+            let carouselitem3 = $("<div>").attr("class", "carousel-item");
+            let imgitem3 = $("<img>").attr({
+                "class": "d-block w-100",
+                "src": "https://q-cf.bstatic.com/images/hotel/max1024x768/147/147871201.jpg"
+            });
             carouselitem3.append(imgitem3);
             $('.carousel-inner').append(carouselitem3);
             $("h5").text("Bahamas");
@@ -247,16 +256,25 @@ $(document).ready(function () {
             $("#Vienna").text("Bahamas")
         }
         if (destination == "Vienna") {
-            let carouselitem4 = $("<div>").attr("class","carousel-item active");
-            let imgitem4 = $("<img>").attr({"class":"d-block w-100","src":"https://www.donkey.bike/wp-content/uploads/2017/04/What-to-do-in-Vienna-on-a-bike-f.jpg"});
+            let carouselitem4 = $("<div>").attr("class", "carousel-item active");
+            let imgitem4 = $("<img>").attr({
+                "class": "d-block w-100",
+                "src": "https://www.donkey.bike/wp-content/uploads/2017/04/What-to-do-in-Vienna-on-a-bike-f.jpg"
+            });
             carouselitem4.append(imgitem4);
             $('.carousel-inner').append(carouselitem4);
-            let carouselitem5 = $("<div>").attr("class","carousel-item");
-            let imgitem5 = $("<img>").attr({"class":"d-block w-100","src":"https://www.worldtravelguide.net/wp-content/uploads/2017/03/shu-Austria-Vienna-StCharles-420505375-1440x823.jpg"});
+            let carouselitem5 = $("<div>").attr("class", "carousel-item");
+            let imgitem5 = $("<img>").attr({
+                "class": "d-block w-100",
+                "src": "https://www.worldtravelguide.net/wp-content/uploads/2017/03/shu-Austria-Vienna-StCharles-420505375-1440x823.jpg"
+            });
             carouselitem5.append(imgitem5);
             $('.carousel-inner').append(carouselitem5);
-            let carouselitem6 = $("<div>").attr("class","carousel-item");
-            let imgitem6 = $("<img>").attr({"class":"d-block w-100","src":"https://images.panoramatours.com/pt/focus/51/49/1920/960/user_upload/Sehenswuerdigkeiten/Wien/Vienna_Sightseeing_Tours/Historische_Stadtrundfahrt_Wien_-_Schloss_Schoenbrunn_mit_Brunnen__c__Vienna_Sightseeing_Tours_-_Bernhard_Luck.jpg"});
+            let carouselitem6 = $("<div>").attr("class", "carousel-item");
+            let imgitem6 = $("<img>").attr({
+                "class": "d-block w-100",
+                "src": "https://images.panoramatours.com/pt/focus/51/49/1920/960/user_upload/Sehenswuerdigkeiten/Wien/Vienna_Sightseeing_Tours/Historische_Stadtrundfahrt_Wien_-_Schloss_Schoenbrunn_mit_Brunnen__c__Vienna_Sightseeing_Tours_-_Bernhard_Luck.jpg"
+            });
             carouselitem6.append(imgitem6);
             $('.carousel-inner').append(carouselitem6);
             $("h5").text("Vienna");
@@ -264,33 +282,51 @@ $(document).ready(function () {
             $("#Vienna").text("Vienna, Austira")
         }
         if (destination == "Vail") {
-            let carouselitem7 = $("<div>").attr("class","carousel-item active");
-            let imgitem7 = $("<img>").attr({"class":"d-block w-100","src":"https://cdn.theculturetrip.com/wp-content/uploads/2018/10/web_hires_vailresorts_arrabelle_ext3_82581.jpg"});
+            let carouselitem7 = $("<div>").attr("class", "carousel-item active");
+            let imgitem7 = $("<img>").attr({
+                "class": "d-block w-100",
+                "src": "https://cdn.theculturetrip.com/wp-content/uploads/2018/10/web_hires_vailresorts_arrabelle_ext3_82581.jpg"
+            });
             carouselitem7.append(imgitem7);
             $('.carousel-inner').append(carouselitem7);
-            let carouselitem8 = $("<div>").attr("class","carousel-item");
-            let imgitem8 = $("<img>").attr({"class":"d-block w-100","src":"https://akns-images.eonline.com/eol_images/Entire_Site/2014929/rs_1024x732-141029142636-1024.The-Sebastian-Vail-Colorado.jl.102914.jpg"});
+            let carouselitem8 = $("<div>").attr("class", "carousel-item");
+            let imgitem8 = $("<img>").attr({
+                "class": "d-block w-100",
+                "src": "https://akns-images.eonline.com/eol_images/Entire_Site/2014929/rs_1024x732-141029142636-1024.The-Sebastian-Vail-Colorado.jl.102914.jpg"
+            });
             carouselitem8.append(imgitem8);
             $('.carousel-inner').append(carouselitem8);
-            let carouselitem9 = $("<div>").attr("class","carousel-item");
-            let imgitem9 = $("<img>").attr({"class":"d-block w-100","src":"https://www.movingmountains.com/sites/default/files/uploads/vail_sm.jpg"});
+            let carouselitem9 = $("<div>").attr("class", "carousel-item");
+            let imgitem9 = $("<img>").attr({
+                "class": "d-block w-100",
+                "src": "https://www.movingmountains.com/sites/default/files/uploads/vail_sm.jpg"
+            });
             carouselitem9.append(imgitem9);
             $('.carousel-inner').append(carouselitem9);
-            $("h5").text("Vail"); 
+            $("h5").text("Vail");
             $("p").text("Vail,CO")
             $("#Vienna").text("Vail,CO")
         }
         if (destination == "San Diego") {
-            let carouselitem10 = $("<div>").attr("class","carousel-item active");
-            let imgitem10 = $("<img>").attr({"class":"d-block w-100","src":"https://www.hotelpalomar-sandiego.com/images/1700-960/istock-833705372-4410d5d4.jpg"});
+            let carouselitem10 = $("<div>").attr("class", "carousel-item active");
+            let imgitem10 = $("<img>").attr({
+                "class": "d-block w-100",
+                "src": "https://www.hotelpalomar-sandiego.com/images/1700-960/istock-833705372-4410d5d4.jpg"
+            });
             carouselitem10.append(imgitem10);
             $('.carousel-inner').append(carouselitem10);
-            let carouselitem12 = $("<div>").attr("class","carousel-item");
-            let imgitem12 = $("<img>").attr({"class":"d-block w-100","src":"https://kpbs.media.clients.ellingtoncms.com/img/photos/2020/03/16/Image_from_iOS_1_upsgwF7_t800.jpg?90232451fbcadccc64a17de7521d859a8f88077d"});
+            let carouselitem12 = $("<div>").attr("class", "carousel-item");
+            let imgitem12 = $("<img>").attr({
+                "class": "d-block w-100",
+                "src": "https://kpbs.media.clients.ellingtoncms.com/img/photos/2020/03/16/Image_from_iOS_1_upsgwF7_t800.jpg?90232451fbcadccc64a17de7521d859a8f88077d"
+            });
             carouselitem12.append(imgitem12);
             $('.carousel-inner').append(carouselitem12);
-            let carouselitem11 = $("<div>").attr("class","carousel-item");
-            let imgitem11 = $("<img>").attr({"class":"d-block w-100","src":"https://media-cdn.tripadvisor.com/media/photo-c/2560x500/14/10/2f/9b/san-diego.jpg"});
+            let carouselitem11 = $("<div>").attr("class", "carousel-item");
+            let imgitem11 = $("<img>").attr({
+                "class": "d-block w-100",
+                "src": "https://media-cdn.tripadvisor.com/media/photo-c/2560x500/14/10/2f/9b/san-diego.jpg"
+            });
             carouselitem11.append(imgitem11);
             $('.carousel-inner').append(carouselitem11);
             $("h5").text("San Diego");
@@ -298,16 +334,25 @@ $(document).ready(function () {
             $("#Vienna").text("San Diego,CA")
         }
         if (destination == "Newport") {
-            let carouselitem14 = $("<div>").attr("class","carousel-item active");
-            let imgitem14 = $("<img>").attr({"class":"d-block w-100","src":"https://live.staticflickr.com/4006/4672669161_6bfd52fdb7_b.jpg"});
+            let carouselitem14 = $("<div>").attr("class", "carousel-item active");
+            let imgitem14 = $("<img>").attr({
+                "class": "d-block w-100",
+                "src": "https://live.staticflickr.com/4006/4672669161_6bfd52fdb7_b.jpg"
+            });
             carouselitem14.append(imgitem14);
             $('.carousel-inner').append(carouselitem14);
-            let carouselitem18 = $("<div>").attr("class","carousel-item");
-            let imgitem18 = $("<img>").attr({"class":"d-block w-100","src":"https://assets.simpleviewinc.com/simpleview/image/upload/c_fill,h_759,q_60,w_1138/v1/clients/newportri/6e7b4a08_e50f_44e4_8e5a_a5de35cda481_ca154a01-fba4-411e-bc0d-371a6c97df35.jpg"});
+            let carouselitem18 = $("<div>").attr("class", "carousel-item");
+            let imgitem18 = $("<img>").attr({
+                "class": "d-block w-100",
+                "src": "https://assets.simpleviewinc.com/simpleview/image/upload/c_fill,h_759,q_60,w_1138/v1/clients/newportri/6e7b4a08_e50f_44e4_8e5a_a5de35cda481_ca154a01-fba4-411e-bc0d-371a6c97df35.jpg"
+            });
             carouselitem18.append(imgitem18);
             $('.carousel-inner').append(carouselitem18);
-            let carouselitem19 = $("<div>").attr("class","carousel-item");
-            let imgitem19 = $("<img>").attr({"class":"d-block w-100","src":"https://whatsupnewp.com/wp-content/uploads/2015/10/bowens-wharf-newport-ri.jpg"});
+            let carouselitem19 = $("<div>").attr("class", "carousel-item");
+            let imgitem19 = $("<img>").attr({
+                "class": "d-block w-100",
+                "src": "https://whatsupnewp.com/wp-content/uploads/2015/10/bowens-wharf-newport-ri.jpg"
+            });
             carouselitem19.append(imgitem19);
             $('.carousel-inner').append(carouselitem19);
             $("h5").text("Newport");
@@ -315,36 +360,43 @@ $(document).ready(function () {
             $("#Vienna").text("Newport,RI")
         }
         if (destination == "Alaska") {
-            let carouselitem15 = $("<div>").attr("class","carousel-item active");
-            let imgitem15 = $("<img>").attr({"class":"d-block w-100","src":"https://www.rssc.com/sites/default/files/M37_Mobile_AlaskaDestinationDetail-062119.jpg"});
+            let carouselitem15 = $("<div>").attr("class", "carousel-item active");
+            let imgitem15 = $("<img>").attr({
+                "class": "d-block w-100",
+                "src": "https://www.rssc.com/sites/default/files/M37_Mobile_AlaskaDestinationDetail-062119.jpg"
+            });
             carouselitem15.append(imgitem15);
             $('.carousel-inner').append(carouselitem15);
-            let carouselitem16 = $("<div>").attr("class","carousel-item");
-            let imgitem16 = $("<img>").attr({"class":"d-block w-100","src":"https://www.visittheusa.com/sites/default/files/styles/hero_m_1300x700/public/images/hero_media_image/2017-02/Alaska8_Web72DPI_2.jpg?itok=2T1bWB1V"});
+            let carouselitem16 = $("<div>").attr("class", "carousel-item");
+            let imgitem16 = $("<img>").attr({
+                "class": "d-block w-100",
+                "src": "https://www.visittheusa.com/sites/default/files/styles/hero_m_1300x700/public/images/hero_media_image/2017-02/Alaska8_Web72DPI_2.jpg?itok=2T1bWB1V"
+            });
             carouselitem16.append(imgitem16);
             $('.carousel-inner').append(carouselitem16);
             $("h5").text("Alaska");
             $("p").text("Alaska")
             $("#Vienna").text("Alaska")
-            
-            
+
+
         }
     }
-    
+
 });
 
 //Dynamic Destination Elements
 
 // Hides start button and title after clicking start
 $('#pstart').on('click', function () {
-    $('#start').remove();
-    $('#heading').remove();
-    $('.surveyquestions').show();
+    // $('#start').remove();
+    $('#welcome').remove();
+    $('.content').show();
     $('#pstart').remove();
-    $('h1').remove();
+    // $('h1').remove();
+    $('body').css('background-image', 'url("assets/Images/hawaii.jpg")');
 });
 
-$('#test-button').on('click', function () {
+$('#submit').on('click', function () {
     checkSurveyRadioButtons();
 });
 
