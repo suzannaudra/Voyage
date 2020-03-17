@@ -1,5 +1,7 @@
 body {
     background-image: url("../Images/397392_1680_1050.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 /* for navbar to be response when page roll up and down */
@@ -55,24 +57,23 @@ body {
 
 }
 
-
-
 /* end of navbar */
 
-
-
-
-.container {
+/* super top margin to home page */
+.container.home {
     margin-top: 200px;
     text-align: center;
 }
 
-/* for frontpage text */
 h1 {
     text-align: center;
     color: #fff;
     animation-name: text-focus-in;
     animation-duration: 3s;
+}
+
+h5.webcam-title{
+    text-align: left;
 }
 
 .text-focus-in {
@@ -167,7 +168,7 @@ h1 {
     }
 }
 
-/* end of fronpage text */
+/* end of frontpage text */
 
 a.nav-link {
     margin-left: 20px;
