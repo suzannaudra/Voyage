@@ -1,7 +1,14 @@
 body {
     background-image: url("../Images/397392_1680_1050.jpg");
     background-repeat: no-repeat;
+    background-position: center;
     background-size: cover;
+    height: 100vh;
+    overflow-anchor: none;
+}
+
+#welcome {
+    margin-top: 300px;
 }
 
 /* for navbar to be response when page roll up and down */
@@ -60,8 +67,8 @@ body {
 /* end of navbar */
 
 /* super top margin to home page */
-.container.home {
-    margin-top: 200px;
+.home {
+    margin-top: 100px;
     text-align: center;
 }
 
@@ -72,7 +79,7 @@ h1 {
     animation-duration: 3s;
 }
 
-h5.webcam-title{
+h5.webcam-title {
     text-align: left;
 }
 
@@ -205,3 +212,37 @@ span {
 
 
 }
+
+.surveyquestions {
+
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(189, 189, 189, 0.3);
+    /* Black w/opacity/see-through */
+    color: #FFFFFF;
+    font-weight: bold;
+    border: none;
+    z-index: 2;
+    width: 80%;
+    padding: 20px;
+    text-align: center;
+
+}
+
+#surveyHeader {
+    font-size: 40px;
+}
+
+.question {
+    font-size: 25px;
+}
+
+@media screen and (max-width: 980px) {
+    .surveyquestions {
+        height: 100vh;
+    }
+}
+
+@media screen and (max-width: 768px) {}
+
+@media screen and (max-width: 640px) {}
