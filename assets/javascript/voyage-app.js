@@ -215,6 +215,9 @@ $(document).ready(function () {
             let imgitem3 = $("<img>").attr({"class":"d-block w-100","src":"https://q-cf.bstatic.com/images/hotel/max1024x768/147/147871201.jpg"});
             carouselitem3.append(imgitem3);
             $('.carousel-inner').append(carouselitem3);
+            $("h5").text("Bahamas");
+            $("p").text("Bahamas")
+            $("#Vienna").text("Bahamas")
         }
         if (destination == "Vienna") {
             let carouselitem4 = $("<div>").attr("class","carousel-item active");
@@ -229,6 +232,9 @@ $(document).ready(function () {
             let imgitem6 = $("<img>").attr({"class":"d-block w-100","src":"https://images.panoramatours.com/pt/focus/51/49/1920/960/user_upload/Sehenswuerdigkeiten/Wien/Vienna_Sightseeing_Tours/Historische_Stadtrundfahrt_Wien_-_Schloss_Schoenbrunn_mit_Brunnen__c__Vienna_Sightseeing_Tours_-_Bernhard_Luck.jpg"});
             carouselitem6.append(imgitem6);
             $('.carousel-inner').append(carouselitem6);
+            $("h5").text("Vienna");
+            $("p").text("Vienna,Austria")
+            $("#Vienna").text("Vienna, Austira")
         }
         if (destination == "Vail") {
             let carouselitem7 = $("<div>").attr("class","carousel-item active");
@@ -243,6 +249,9 @@ $(document).ready(function () {
             let imgitem9 = $("<img>").attr({"class":"d-block w-100","src":"https://www.movingmountains.com/sites/default/files/uploads/vail_sm.jpg"});
             carouselitem9.append(imgitem9);
             $('.carousel-inner').append(carouselitem9);
+            $("h5").text("Vail"); 
+            $("p").text("Vail,CO")
+            $("#Vienna").text("Vail,CO")
         }
         if (destination == "San Diego") {
             let carouselitem10 = $("<div>").attr("class","carousel-item active");
@@ -257,6 +266,9 @@ $(document).ready(function () {
             let imgitem11 = $("<img>").attr({"class":"d-block w-100","src":"https://media-cdn.tripadvisor.com/media/photo-c/2560x500/14/10/2f/9b/san-diego.jpg"});
             carouselitem11.append(imgitem11);
             $('.carousel-inner').append(carouselitem11);
+            $("h5").text("San Diego");
+            $("p").text("San Diego,CA")
+            $("#Vienna").text("San Diego,CA")
         }
         if (destination == "Newport") {
             let carouselitem14 = $("<div>").attr("class","carousel-item active");
@@ -271,6 +283,9 @@ $(document).ready(function () {
             let imgitem19 = $("<img>").attr({"class":"d-block w-100","src":"https://whatsupnewp.com/wp-content/uploads/2015/10/bowens-wharf-newport-ri.jpg"});
             carouselitem19.append(imgitem19);
             $('.carousel-inner').append(carouselitem19);
+            $("h5").text("Newport");
+            $("p").text("Newport,RI")
+            $("#Vienna").text("Newport,RI")
         }
         if (destination == "Alaska") {
             let carouselitem15 = $("<div>").attr("class","carousel-item active");
@@ -281,6 +296,10 @@ $(document).ready(function () {
             let imgitem16 = $("<img>").attr({"class":"d-block w-100","src":"https://www.visittheusa.com/sites/default/files/styles/hero_m_1300x700/public/images/hero_media_image/2017-02/Alaska8_Web72DPI_2.jpg?itok=2T1bWB1V"});
             carouselitem16.append(imgitem16);
             $('.carousel-inner').append(carouselitem16);
+            $("h5").text("Alaska");
+            $("p").text("Alaska")
+            $("#Vienna").text("Alaska")
+            
             
         }
     }
