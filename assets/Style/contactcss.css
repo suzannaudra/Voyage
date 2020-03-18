@@ -1,4 +1,4 @@
-body{
+body {
     /* background: -webkit-linear-gradient(left, #0072ff, #00c6ff); */
     background-image: url("assets/Images/397392_1680_1050.jpg");
     background-repeat: no-repeat;
@@ -7,33 +7,41 @@ body{
     height: auto;
     overflow-anchor: none;
 }
-.contact-form{
+
+.contact-form {
     background-color: rgba(109, 109, 109, 0.24);
     margin-top: 10%;
     margin-bottom: 5%;
     width: 70%;
 }
-.contact-form .form-control{
-    border-radius:1rem;
+
+.contact-form .form-control {
+    border-radius: 1rem;
 }
-.contact-image{
+
+.contact-image {
     text-align: center;
 }
-.contact-image img{
+
+.contact-image img {
     width: 50%;
 }
-.contact-form form{
+
+.contact-form form {
     padding: 14%;
 }
-.contact-form form .row{
+
+.contact-form form .row {
     margin-bottom: -7%;
 }
-.contact-form h3{
+
+.contact-form h3 {
     margin-bottom: 8%;
     margin-top: -10%;
     text-align: center;
     color: #ffffffbb;
 }
+
 .contact-form .btnContact {
     width: 50%;
     border: none;
@@ -44,8 +52,8 @@ body{
     color: #fff;
     cursor: pointer;
 }
-.btnContactSubmit
-{
+
+.btnContactSubmit {
     width: 50%;
     border-radius: 1rem;
     padding: 1.5%;
@@ -55,9 +63,7 @@ body{
     cursor: pointer;
 }
 
-* for navbar to be response when page roll up and down */
-
-.navbar-trans {
+* for navbar to be response when page roll up and down */ .navbar-trans {
     background-color: transparent;
     color: aliceblue;
 }
@@ -106,6 +112,16 @@ body{
 .navbar-toggler {
     color: #fff;
 
+}
+
+a.nav-link {
+    margin-left: 20px;
+    margin-right: 20px;
+
+}
+
+span {
+    margin: 10px;
 }
 
 /* end of navbar */

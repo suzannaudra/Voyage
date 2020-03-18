@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="destination-bg">
 
 <head>
     <meta charset="UTF-8">
@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
     <!-- firebase script references -->
     <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
@@ -20,7 +22,7 @@
 
 <body>
     <nav class="navbar navbar-expand-lg fixed-top navbar-trans">
-        <a class="navbar-brand" href="#">Voyage</a>
+        <a class="navbar-brand" href="index.html">Voyage</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -59,7 +61,7 @@
             <aside class="col-md">
 
                 <div id="destination-page-card" class="row card text-center">
-                    <div class="card-body">
+                    <div class="card-body px-0 pt-0">
                         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                             <div class="carousel-inner">
                                 <!-- <div class="carousel-item active">
@@ -92,7 +94,7 @@
                         <p class="card-text">Introduction about Bahamas</p>
                         <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
                     </div>
-                    <div id="Vienna" class="card-footer text-muted">
+                    <div id="Vienna" class="card-footer">
                         Bahamas: <span><img class="icon"></span><span class="weather"></span><span class="temp"></span>
                     </div>
                 </div>
@@ -108,7 +110,7 @@
         </div>
 
         <div id="webcam-wrapper" class="row mt-5">
-            <h1 class="display-4 d-table">Nearby Webcam Previews</h1>
+            <h1 class="display-5 d-table">Nearby Webcam Previews</h1>
 
             <div id="webcam-container" class="row">
                 <div id="webcam-spinner" class="col ml-3">
