@@ -80,6 +80,13 @@ h1 {
     animation-duration: 3s;
 }
 
+/* google maps object */
+#google-map {
+    border-radius: 10px;
+    min-height: 500px;
+    min-width: 100px;
+  }
+
 h5.webcam-title {
     text-align: left;
 }
