@@ -1,17 +1,18 @@
 // Initialize Firebase
 var firebaseConfig = {
-    apiKey: "AIzaSyA7yTHFyRl7s6ZvTvQ-chYiE5flrw8NJ0g",
-    authDomain: "myapp-654ae.firebaseapp.com",
-    databaseURL: "https://myapp-654ae.firebaseio.com",
-    projectId: "myapp-654ae",
-    storageBucket: "myapp-654ae.appspot.com",
-    messagingSenderId: "437569120119",
-    appId: "1:437569120119:web:3d608b52341c7f06806372",
-    measurementId: "G-G5YVGZ0V28"
-};
-// Initialize Firebase
-firebase.initializeApp(firebaseConfig);
+    apiKey: "AIzaSyAJCNuM-YvvqM-P7C-ycyrAZO4OSoijLIU",
+    authDomain: "project1-app-4102a.firebaseapp.com",
+    databaseURL: "https://project1-app-4102a.firebaseio.com",
+    projectId: "project1-app-4102a",
+    storageBucket: "project1-app-4102a.appspot.com",
+    messagingSenderId: "650455788981",
+    appId: "1:650455788981:web:134e5ddb516d463c07bdfc",
+    measurementId: "G-CRYV2184MF"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
 var db = firebase.database();
+var contactsRef = db.ref("/contacts");
 
 // VARIABLES -------------
 var destinationRecommendations = [];
@@ -45,6 +46,8 @@ const destCoordinates = {
 var clickedDestination;
 
 // FUNCTIONS -------------
+
+// navbar function
 $(function () {
     $(window).on('scroll', function () {
         if ($(window).scrollTop() > 10) {
@@ -132,68 +135,72 @@ function checkSurveyRadioButtons() {
     var destRunnerup = "";
 
     // tally the survey results into destination vars
+    
+    // ---- question 1 ----
     if ($("#q1-adventure").is(':checked')) {
-        destinations.Vail++;
+        destinations.Vail++; // user prefers adventure
     };
     if ($("#q1-relaxation").is(':checked')) {
-        destinations.Bahamas++;
+        destinations.Bahamas++; // user prefers relaxation
     };
     if ($("#q1-combo").is(':checked')) {
-        destinations.Vienna++;
+        destinations.Vienna++; // user prefers combination adventure/relaxation
     };
-
+// ---- question 2 ----
     if ($("#q2-sunshine").is(':checked')) {
-        destinations.Bahamas++;
+        destinations.Bahamas++; // user prefers sunshine
     };
     if ($("#q2-snow").is(':checked')) {
-        destinations.Alaska++;
+        destinations.Alaska++; // user prefers snow
         destinations.Vail++;
     };
     if ($("#q2-combo").is(':checked')) {
-        destinations.Vail++;
+        destinations.Vail++; // user prefers warm weather
     };
-
+// ---- question 3 ----
     if ($("#q3-beach").is(':checked')) {
-        destinations.SanDiego++;
+        destinations.SanDiego++; // user prefers beach locals
         destinations.Bahamas++;
     };
     if ($("#q3-skislopes").is(':checked')) {
-        destinations.Vail++;
+        destinations.Vail++; // user prefers ski slops
         destinations.Alaska++;
     };
     if ($("#q3-hiking").is(':checked')) {
-        destinations.Vail++;
+        destinations.Vail++; // user prefers hiking
         destinations.Alaska++;
         destinations.SanDiego++;
     };
     if ($("#q3-explorecity").is(':checked')) {
-        destinations.SanDiego++;
+        destinations.SanDiego++; // user prefers city exploration
         destinations.Vienna++;
     };
+    // ---- question 4 ----
     if ($("#q4-historical").is(':checked')) {
-        destinations.Vienna++;
+        destinations.Vienna++; // user prefers historical sites
         destinations.SanDiego++;
     };
     if ($("#q4-atv").is(':checked')) {
-        destinations.Alaska++;
+        destinations.Alaska++; // user prefers ATVs
     };
     if ($("#q4-pool").is(':checked')) {
-        destinations.SanDiego++;
-        destinations.Bahamas++;
+        destinations.SanDiego++; // user prefers poolside
+        destinations.Bahamas++; 
     };
     if ($("#q4-nightlife").is(':checked')) {
-        destinations.Vienna++;
+        destinations.Vienna++; // user prefers nightlife
         destinations.SanDiego++;
     };
+    // ---- question 5 ----
     if ($("#q5-shortflight").is(':checked')) {
-        destinations.SanDiego++
+        destinations.SanDiego++ // short travel
     };
     if ($("#q5-acrosscountry").is(':checked')) {
-        destinations.Alaska++;
+        destinations.Alaska++; // medium travel
         destinations.Vail++;
     };
     if ($("#q5-acrossworld").is(':checked')) {
-        destinations.Vienna++;
+        destinations.Vienna++; // distant travel
     }
     // store the destination.scores properties to an array for sorting
     let toBeSorted = Object.entries(destinations); // example: toBeSorted = [ ["Bahamas", 4], ["Vail", 5]...]
@@ -215,7 +222,9 @@ function checkSurveyRadioButtons() {
         }
     }
     // return the winner and runner-up in an array
+    console.log([destWinner, destRunnerup]);
     return [destWinner, destRunnerup]; // example: ["Vail", "Bahamas"]
+
 }
 
 $(document).ready(function () {
@@ -227,6 +236,7 @@ $(document).ready(function () {
         let destination = sessionStorage.getItem("clickedDestination");
         console.log("Bahamas", destination);
         getWebcams(destination);
+        getWeather(destination);
         // make destination block
 
         if (destination == "Bahamas") {
@@ -396,9 +406,11 @@ $('#pstart').on('click', function () {
     $('body').css('background-image', 'url("assets/Images/hawaii.jpg")');
 });
 
+// survey submit button event
 $('#submit').on('click', function () {
     checkSurveyRadioButtons();
 });
+
 
 $(".card").on("click", function (e) {
     e.preventDefault;
@@ -415,10 +427,62 @@ $("#webcam-container").on("click", ".webcam-card", function () {
     window.open(playerUrl);
 })
 
+// contact form send message button event
+$("#send-message-button").on("click", function(event){
+    // event.preventDefault();
+    let name    = $("input[name='txtName']").val().trim();
+    let email   = $("input[name='txtEmail']").val().trim();
+    let phone   = $("input[name='txtPhone']").val().trim();
+    let msg     = $("textarea[name='txtMsg']").val().trim();
+
+    contactsRef.push({
+        n:      name,
+        e:      email,
+        p:      phone,
+        m:      msg,
+        dAdded: firebase.database.ServerValue.TIMESTAMP
+    }, function(error){console.log(error);})
+    console.log("test send message");
+});
+
+
+$("#contact-read-messages-button").on("click", function(event){
+    event.preventDefault();
+   displayMessages();
+    
+});
+
 // INITIALIZE/MAIN -------------
 
 
 // MORE FUNCTIONS DOWN HERE
+
+// function to display contact message data from firebase
+function displayMessages(){
+    $("#messages-display").empty();
+    // build headers
+    let $headerWrapper = $("<div>").attr("class", "row text-white font-weight-bold text-center justify-content-center");
+    let $headerName = $("<div>").attr("class", "col-3 text-right").text("Name");
+    let $headerEmail = $("<div>").attr("class", "col-4 text-left").text("Email");
+    let $headerMsg = $("<div>").attr("class", "col-5 h-auto text-left text-wrap").text("Message");
+    $headerWrapper.append($headerName, $headerEmail, $headerMsg);
+    $("#messages-display").append($headerWrapper);
+
+    // retrieve data from firebase and display
+    contactsRef.on('child_added', function(snap){
+        let $msgWrapper = $("<div>").attr("class", "row text-white text-center justify-content-center");
+        let $msgDivName = $("<div>").attr("class", "col-3 text-right").text(snap.val().n + " ");
+        let $msgDivEmail = $("<div>").attr("class", "col-4 text-left").text(snap.val().e + " ");
+        let $msgDivMsg = $("<div>").attr("class", "col-5 h-auto text-left text-wrap").html("<p class='text-break'>" + snap.val().m.toString() + "</p>");
+        
+        $msgWrapper.append($msgDivName, $msgDivEmail, $msgDivMsg);
+        $("#messages-display").append($msgWrapper);
+    }, function(){
+        contactsRef.off(); // detach (turn off) the listner when complete
+    });
+
+}
+
 
 // function to display webcam card elements;
 function makeWebcamCard(id, preview, playerUrl, alt, title, text) {

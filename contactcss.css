@@ -1,8 +1,14 @@
 body{
     /* background: -webkit-linear-gradient(left, #0072ff, #00c6ff); */
+    background-image: url("assets/Images/397392_1680_1050.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: auto;
+    overflow-anchor: none;
 }
 .contact-form{
-    background: #fff;
+    background-color: rgba(109, 109, 109, 0.24);
     margin-top: 10%;
     margin-bottom: 5%;
     width: 70%;
@@ -26,7 +32,7 @@ body{
     margin-bottom: 8%;
     margin-top: -10%;
     text-align: center;
-    color: #0062cc;
+    color: #ffffffbb;
 }
 .contact-form .btnContact {
     width: 50%;
@@ -48,3 +54,58 @@ body{
     border: none;
     cursor: pointer;
 }
+
+* for navbar to be response when page roll up and down */
+
+.navbar-trans {
+    background-color: transparent;
+    color: aliceblue;
+}
+
+.navbar {
+    transition: all 0.4s;
+}
+
+.navbar .nav-link {
+    color: #fff;
+}
+
+.nav-link {
+    color: #fff;
+}
+
+.navbar .nav-link:hover,
+.navbar .nav-link:focus {
+    color: #fff;
+    text-decoration: none;
+}
+
+.navbar .navbar-brand {
+    color: #fff;
+}
+
+.navbar.active {
+    background: #fff;
+    box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar.active .nav-link {
+    color: #555;
+}
+
+.navbar.active .nav-link:hover,
+.navbar.active .nav-link:focus {
+    color: #555;
+    text-decoration: none;
+}
+
+.navbar.active .navbar-brand {
+    color: #555;
+}
+
+.navbar-toggler {
+    color: #fff;
+
+}
+
+/* end of navbar */
