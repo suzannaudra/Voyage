@@ -237,6 +237,11 @@ span {
     font-size: 25px;
 }
 
+#winner1 {
+    width: 214px;
+    height: auto;
+}
+
 @media screen and (max-width: 980px) {
     .surveyquestions {
         height: 100vh;

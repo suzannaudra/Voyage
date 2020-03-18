@@ -216,7 +216,12 @@ function checkSurveyRadioButtons() {
     }
     // return the winner and runner-up in an array
     return [destWinner, destRunnerup]; // example: ["Vail", "Bahamas"]
+
 }
+
+
+
+
 
 $(document).ready(function () {
     $('.content').hide();
@@ -397,7 +402,57 @@ $('#pstart').on('click', function () {
 });
 
 $('#submit').on('click', function () {
-    checkSurveyRadioButtons();
+
+    var recommendation = checkSurveyRadioButtons();
+    console.log(recommendation)
+    if (recommendation[0] == "Vail") {
+        $("#winner1").attr('src', 'assets/Images/Vail.jpeg');
+        $("#winner1Text").text("Vail");
+    }
+    if (recommendation[0] == "Vienna") {
+        $("#winner1").attr('src', 'assets/Images/Vienna.jpeg')
+        $("#winner1Text").text("Vienna");
+    }
+    if (recommendation[0] == "SanDiego") {
+        $("#winner1").attr('src', 'assets/Images/SanDiego.jpeg')
+        $("#winner1Text").text("San Diego");
+    }
+    if (recommendation[0] == "Bahamas") {
+        $("#winner1").attr('src', 'assets/Images/Bahamas.jpeg')
+        $("#winner1Text").text("Bahamas");
+    }
+    if (recommendation[0] == "Alaska") {
+        $("#winner1").attr('src', 'assets/Images/Alaska.jpg')
+        $("#winner1Text").text("Alaska");
+    }
+    if (recommendation[0] == "Newport") {
+        $("#winner1").attr('src', 'assets/Images/Newport.jpg')
+        $("#winner1Text").text("Newport");
+    }
+    if (recommendation[1] == "Vail") {
+        $("#winner2").attr('src', 'assets/Images/Vail.jpeg');
+        $("#winner2Text").text("Vail");
+    }
+    if (recommendation[1] == "Vienna") {
+        $("#winner2").attr('src', 'assets/Images/Vienna.jpeg')
+        $("#winner2Text").text("Vienna");
+    }
+    if (recommendation[1] == "SanDiego") {
+        $("#winner2").attr('src', 'assets/Images/SanDiego.jpeg')
+        $("#winner1Text").text("San Diego");
+    }
+    if (recommendation[1] == "Bahamas") {
+        $("#winner2").attr('src', 'assets/Images/Bahamas.jpeg')
+        $("#winner2Text").text("Bahamas");
+    }
+    if (recommendation[1] == "Alaska") {
+        $("#winner2").attr('src', 'assets/Images/Alaska.jpg')
+        $("#winner2Text").text("Alaska");
+    }
+    if (recommendation[1] == "Newport") {
+        $("#winner2").attr('src', 'assets/Images/Newport.jpg')
+        $("#winner2Text").text("Newport");
+    }
 });
 
 $(".card").on("click", function (e) {

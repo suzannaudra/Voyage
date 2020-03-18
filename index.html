@@ -204,7 +204,8 @@
                             </div>
                         </div>
                     </div>
-                    <button id="submit" type="button" class="btn btn-lg btn-light">Submit</button>
+                    <button id="submit" type="button" class="btn btn-lg btn-light" data-toggle="modal"
+                        data-target="#results">Submit</button>
                 </form>
 
             </article>
@@ -305,6 +306,45 @@
             </aside>
         </div>
 
+
+        <!-- Modal -->
+        <div class="modal fade" id="results" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalCenterTitle">These destinations are for you!</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="card">
+                                    <div class="card">
+                                        <img id="winner1" src="#" class="card-img-top" alt="...">
+                                        <div class="card-body">
+                                            <a class="card-text" id="winner1Text" href="#">Bahamas</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="card">
+                                    <div class="card">
+                                        <img id="winner2" src="#" class="card-img-top" alt="...">
+                                        <div class="card-body">
+                                            <a class="card-text" id="winner2Text" href="#">Bahamas</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- script links -->
