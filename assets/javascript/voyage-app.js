@@ -57,7 +57,7 @@ $(function () {
         }
     });
 });
-// function to get and display webcams based on selected destination name: 
+// function to get and display webcams from selected destination name: 
 function getWebcams(destName1, destName2) {
     let coors = "";
     $("#webcam-spinner").show();
@@ -97,16 +97,12 @@ function getWebcams(destName1, destName2) {
         headers: {
             "x-windy-key": webcamApiKey
         },
-        timeout: 3000
+        timeout: 5000
     }).then(function (response) {
-        // do stuff after getting back response 
-        console.log("response: ", response);
-
         if (response.result.webcams.length > 0) {
-            // at least one webcam found
-            // loop through webcams
+            // at least one webcam found, loop through webcams
             for (var w of response.result.webcams) {
-                // NOTE: to get index of webcam: response.result.webcams.indexOf(w)
+                // to get index of webcam: response.result.webcams.indexOf(w)
                 let $newWebcamCard = makeWebcamCard(
                     w.id, // webcam id as card id
                     w.image.daylight.preview, // daytime preview image url
@@ -116,7 +112,6 @@ function getWebcams(destName1, destName2) {
                     w.location.country); // card text
                 $("#webcam-container").append($newWebcamCard);
                 $("#webcam-spinner").hide();
-
             }
         } else {
             // display 'no webcams found' message
@@ -134,7 +129,7 @@ function checkSurveyRadioButtons() {
     var destWinner = "";
     var destRunnerup = "";
 
-    // tally the survey results into destination vars
+    // tally survey results into destination vars
     
     // ---- question 1 ----
     if ($("#q1-adventure").is(':checked')) {
@@ -209,7 +204,7 @@ function checkSurveyRadioButtons() {
         return y[1] - x[1]
     });
 
-    // loop through the sorted array
+    // loop through sorted array
     for (var i of sorted) {
         if (sorted.indexOf(i) == 0) {
             destWinner = i[0];
@@ -559,11 +554,11 @@ function makeWebcamCard(id, preview, playerUrl, alt, title, text) {
     });
     let $cardTitle = $("<h5>", {
         id: id + "card-title",
-        class: "card-title webcam-title d-table",
+        class: "card-title webcam-title d-block text-truncate",
         text: title
     });
     let $cardText = $("<p>", {
-        class: "card-text webcam-text d-table",
+        class: "card-text webcam-text d-inline text-truncate",
         text: text
     });
     $cardDiv.append($cardImg);
