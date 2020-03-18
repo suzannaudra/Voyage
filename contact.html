@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Voyage</title>
-    <title>Voyage</title>
     <!-- Bootstrap -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <!-- firebase script references -->
     <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-app.js"></script>
@@ -17,38 +17,104 @@
 </head>
 
 <body>
-    <div class="container contact-form">
+    <nav class="navbar navbar-expand-lg fixed-top navbar-trans">
+        <a class="navbar-brand" href="#">Voyage</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contact.html">Contact Us</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Our Team Members
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="https://github.com/suzannaudra">Suzann Kowalski</a>
+                        <a class="dropdown-item" href="https://github.com/broken-guitar">David Flores</a>
+                        <a class="dropdown-item" href="https://github.com/thuynguyen-nht">Thuy Nguyen</a>
+                        <a class="dropdown-item" href="https://github.com/SandeshCharka">Sandesh Charka</a>
+
+                    </div>
+                </li>
+
+            </ul>
+
+        </div>
+    </nav>
+    <div class="container contact-form pt-4">
         <div class="contact-image">
             <img src="https://www.fluentu.com/blog/travel/wp-content/uploads/sites/37/2018/07/travel-around-the-world-cost-e1535307163370.jpg"
                 alt="rocket_contact" />
         </div>
-        <form method="post">
+        <form class="needs-validation" novalidate>
             <h3>Drop Us a Message</h3>
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
-                        <input type="text" name="txtName" class="form-control" placeholder="Your Name *" value="" />
+                        <input type="text" name="txtName" class="form-control needs-validation" placeholder="Your Name *" value="" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="text" name="txtEmail" class="form-control" placeholder="Your Email *" value="" required>
                     </div>
                     <div class="form-group">
-                        <input type="text" name="txtEmail" class="form-control" placeholder="Your Email *" value="" />
+                        <input type="text" name="txtPhone" class="form-control" placeholder="Your Phone Number"
+                            value="">
                     </div>
                     <div class="form-group">
-                        <input type="text" name="txtPhone" class="form-control" placeholder="Your Phone Number *"
-                            value="" />
-                    </div>
-                    <div class="form-group">
-                        <input type="submit" name="btnSubmit" class="btnContact" value="Send Message" />
+                        <input id="send-message-button" type="submit" name="btnSubmit" class="btnContact" value="Send Message">
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
                         <textarea name="txtMsg" class="form-control" placeholder="Your Message *"
-                            style="width: 100%; height: 150px;"></textarea>
+                            style="width: 100%; height: 150px;" required></textarea>
                     </div>
                 </div>
             </div>
         </form>
+
+        <div class="row justify-content-center">
+            <div class="col-12 text-center">
+                <input id="contact-read-messages-button" type="submit" name="btnSubmit" class="btnContact" value="Admin - View Messages">
+            </div>
+            
+            <div id="messages-display" class="col-12 mt-3">
+
+            </div>
+           
+        </div>
     </div>
+
+    <script>
+        // Example starter JavaScript for disabling form submissions if there are invalid fields
+        (function() {
+          'use strict';
+          window.addEventListener('load', function() {
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.getElementsByClassName('needs-validation');
+            // Loop over them and prevent submission
+            var validation = Array.prototype.filter.call(forms, function(form) {
+              form.addEventListener('submit', function(event) {
+                if (form.checkValidity() === false) {
+                  event.preventDefault();
+                  event.stopPropagation();
+                }
+                form.classList.add('was-validated');
+              }, false);
+            });
+          }, false);
+        })();
+        </script>
 
     <!-- bootstrap -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
@@ -64,3 +130,4 @@
 </body>
 
 </html>
+
