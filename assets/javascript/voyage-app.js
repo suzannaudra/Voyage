@@ -8,9 +8,9 @@ var firebaseConfig = {
     messagingSenderId: "650455788981",
     appId: "1:650455788981:web:134e5ddb516d463c07bdfc",
     measurementId: "G-CRYV2184MF"
-  };
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
+};
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
 var db = firebase.database();
 var contactsRef = db.ref("/contacts");
 
@@ -129,8 +129,10 @@ function checkSurveyRadioButtons() {
     var destWinner = "";
     var destRunnerup = "";
 
+
     // tally survey results into destination vars
     
+
     // ---- question 1 ----
     if ($("#q1-adventure").is(':checked')) {
         destinations.Vail++; // user prefers adventure
@@ -141,7 +143,7 @@ function checkSurveyRadioButtons() {
     if ($("#q1-combo").is(':checked')) {
         destinations.Vienna++; // user prefers combination adventure/relaxation
     };
-// ---- question 2 ----
+    // ---- question 2 ----
     if ($("#q2-sunshine").is(':checked')) {
         destinations.Bahamas++; // user prefers sunshine
     };
@@ -152,7 +154,7 @@ function checkSurveyRadioButtons() {
     if ($("#q2-combo").is(':checked')) {
         destinations.Vail++; // user prefers warm weather
     };
-// ---- question 3 ----
+    // ---- question 3 ----
     if ($("#q3-beach").is(':checked')) {
         destinations.SanDiego++; // user prefers beach locals
         destinations.Bahamas++;
@@ -180,7 +182,7 @@ function checkSurveyRadioButtons() {
     };
     if ($("#q4-pool").is(':checked')) {
         destinations.SanDiego++; // user prefers poolside
-        destinations.Bahamas++; 
+        destinations.Bahamas++;
     };
     if ($("#q4-nightlife").is(':checked')) {
         destinations.Vienna++; // user prefers nightlife
@@ -477,28 +479,30 @@ $("#webcam-container").on("click", ".webcam-card", function () {
 })
 
 // contact form send message button event
-$("#send-message-button").on("click", function(event){
+$("#send-message-button").on("click", function (event) {
     // event.preventDefault();
-    let name    = $("input[name='txtName']").val().trim();
-    let email   = $("input[name='txtEmail']").val().trim();
-    let phone   = $("input[name='txtPhone']").val().trim();
-    let msg     = $("textarea[name='txtMsg']").val().trim();
+    let name = $("input[name='txtName']").val().trim();
+    let email = $("input[name='txtEmail']").val().trim();
+    let phone = $("input[name='txtPhone']").val().trim();
+    let msg = $("textarea[name='txtMsg']").val().trim();
 
     contactsRef.push({
-        n:      name,
-        e:      email,
-        p:      phone,
-        m:      msg,
+        n: name,
+        e: email,
+        p: phone,
+        m: msg,
         dAdded: firebase.database.ServerValue.TIMESTAMP
-    }, function(error){console.log(error);})
+    }, function (error) {
+        console.log(error);
+    })
     console.log("test send message");
 });
 
 
-$("#contact-read-messages-button").on("click", function(event){
+$("#contact-read-messages-button").on("click", function (event) {
     event.preventDefault();
-   displayMessages();
-    
+    displayMessages();
+
 });
 
 // INITIALIZE/MAIN -------------
@@ -507,7 +511,7 @@ $("#contact-read-messages-button").on("click", function(event){
 // MORE FUNCTIONS DOWN HERE
 
 // function to display contact message data from firebase
-function displayMessages(){
+function displayMessages() {
     $("#messages-display").empty();
     // build headers
     let $headerWrapper = $("<div>").attr("class", "row text-white font-weight-bold text-center justify-content-center");
@@ -518,15 +522,15 @@ function displayMessages(){
     $("#messages-display").append($headerWrapper);
 
     // retrieve data from firebase and display
-    contactsRef.on('child_added', function(snap){
+    contactsRef.on('child_added', function (snap) {
         let $msgWrapper = $("<div>").attr("class", "row text-white text-center justify-content-center");
         let $msgDivName = $("<div>").attr("class", "col-3 text-right").text(snap.val().n + " ");
         let $msgDivEmail = $("<div>").attr("class", "col-4 text-left").text(snap.val().e + " ");
         let $msgDivMsg = $("<div>").attr("class", "col-5 h-auto text-left text-wrap").html("<p class='text-break'>" + snap.val().m.toString() + "</p>");
-        
+
         $msgWrapper.append($msgDivName, $msgDivEmail, $msgDivMsg);
         $("#messages-display").append($msgWrapper);
-    }, function(){
+    }, function () {
         contactsRef.off(); // detach (turn off) the listner when complete
     });
 
