@@ -1,6 +1,7 @@
 body{
     /* background: -webkit-linear-gradient(left, #0072ff, #00c6ff); */
     background-image: url("assets/Images/397392_1680_1050.jpg");
+    background-attachment: fixed;
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
