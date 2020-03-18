@@ -131,7 +131,7 @@ function checkSurveyRadioButtons() {
 
 
     // tally survey results into destination vars
-    
+
 
     // ---- question 1 ----
     if ($("#q1-adventure").is(':checked')) {
@@ -241,6 +241,8 @@ $(document).ready(function () {
         // make destination block
 
         if (destination == "Bahamas") {
+            $("body").css("background-image", "url('assets/Images/Bahamas.jpg')");
+
             let carouselitem1 = $("<div>").attr("class", "carousel-item active");
             let imgitem1 = $("<img>").attr({
                 "class": "d-block w-100",
@@ -263,10 +265,14 @@ $(document).ready(function () {
             carouselitem3.append(imgitem3);
             $('.carousel-inner').append(carouselitem3);
             $("h5").text("Bahamas");
-            $("p").text("Bahamas")
-            $("#Vienna").text("Bahamas")
+            $("p").text("Like seashells, no two holidays in the Bahamas are alike. With options as diverse as its 700 islands, it's a place where you can find exactly the getaway you love most. Looking for a family destination, a place for lovers to sneak away, a gambling mecca, a haven for cruise passengers, or a shopper’s world market? The Bahamas is all these… and much more.")
+            $("#Vienna").text("Bahamas, North America")
+
+
         }
         if (destination == "Vienna") {
+            $("body").css("background-image", "url('assets/Images/Vienna.jpg')");
+
             let carouselitem4 = $("<div>").attr("class", "carousel-item active");
             let imgitem4 = $("<img>").attr({
                 "class": "d-block w-100",
@@ -289,10 +295,12 @@ $(document).ready(function () {
             carouselitem6.append(imgitem6);
             $('.carousel-inner').append(carouselitem6);
             $("h5").text("Vienna");
-            $("p").text("Vienna,Austria")
+            $("p").text("In Vienna, the coffee house isn’t just a hangout: it’s an institution. Lingering over a newspaper with a pastry and a strong espresso drink is, according to UNESCO, officially a Viennese cultural pastime. Walk off your slice of Sachertorte with a self-guided tour of the city’s stunning traditional, Secessionist, and modern architecture, such as the Imperial Palace, the State Opera House, the Kirche am Steinhof, or the Kunsthistorisches Museum, an exercise in ornate geometry.")
             $("#Vienna").text("Vienna, Austira")
         }
+
         if (destination == "Vail") {
+            $("body").css("background-image", "url('assets/Images/Vail.jpg')");
             let carouselitem7 = $("<div>").attr("class", "carousel-item active");
             let imgitem7 = $("<img>").attr({
                 "class": "d-block w-100",
@@ -315,10 +323,11 @@ $(document).ready(function () {
             carouselitem9.append(imgitem9);
             $('.carousel-inner').append(carouselitem9);
             $("h5").text("Vail");
-            $("p").text("Vail,CO")
-            $("#Vienna").text("Vail,CO")
+            $("p").text("North America's biggest and most popular ski resort, Vail is an alpine village in the heart of the Rocky Mountains. Long a favorite of serious skiers and jet setting celebrities, Vail now also draws a younger, hipper snowboarding crowd. Skiing is king at Vail Mountain and the Blue Sky Basin, but the area's vast splendor is perfect for hiking, biking, snowmobiling or scenery-gazing at any time of the year.")
+            $("#Vienna").text("Vail, CO")
         }
         if (destination == "San Diego") {
+            $("body").css("background-image", "url('assets/Images/san-diego.jpg')");
             let carouselitem10 = $("<div>").attr("class", "carousel-item active");
             let imgitem10 = $("<img>").attr({
                 "class": "d-block w-100",
@@ -341,10 +350,11 @@ $(document).ready(function () {
             carouselitem11.append(imgitem11);
             $('.carousel-inner').append(carouselitem11);
             $("h5").text("San Diego");
-            $("p").text("San Diego,CA")
-            $("#Vienna").text("San Diego,CA")
+            $("p").text("San Diego embodies laid-back California culture, complete with a Boardwalk, surfing communities, and outstanding Mexican food. Breathe in the fresh ocean air at Sunset Cliffs Natural Park, then gobble down a fresh fish taco at a La Jolla seafood joint. The naval aircrafts at the USS Midway Museum will have you standing at attention. A free Sunday concert at the Spreckels Organ Pavilion is the perfect way to unwind after a Saturday night bar-hop in the thumping Gaslamp Quarter.")
+            $("#Vienna").text("San Diego, CA")
         }
         if (destination == "Newport") {
+            $("body").css("background-image", "url('assets/Images/Newport-bg.jpg')");
             let carouselitem14 = $("<div>").attr("class", "carousel-item active");
             let imgitem14 = $("<img>").attr({
                 "class": "d-block w-100",
@@ -367,10 +377,11 @@ $(document).ready(function () {
             carouselitem19.append(imgitem19);
             $('.carousel-inner').append(carouselitem19);
             $("h5").text("Newport");
-            $("p").text("Newport,RI")
-            $("#Vienna").text("Newport,RI")
+            $("p").text("Part unspoiled nature, part manmade wonder and part luxury paradise, Newport Beach enchants every type of traveler to its glowing shores. Trendsetters flock to the shopping havens of open air Fashion Island, the seaside shops of Corona Del Mar and the new developments on Newport Coast. The estuary on Back Bay is a birder's paradise, while the protected beach at Crystal Cove is favored by hikers. Surfers catch the best breaks on The Wedge while families enjoy the Fun Zone on Balboa Peninsula.")
+            $("#Vienna").text("Newport, RI")
         }
         if (destination == "Alaska") {
+            $("body").css("background-image", "url('assets/Images/alaska_national_park.jpg')");
             let carouselitem15 = $("<div>").attr("class", "carousel-item active");
             let imgitem15 = $("<img>").attr({
                 "class": "d-block w-100",
@@ -386,8 +397,8 @@ $(document).ready(function () {
             carouselitem16.append(imgitem16);
             $('.carousel-inner').append(carouselitem16);
             $("h5").text("Alaska");
-            $("p").text("Alaska")
-            $("#Vienna").text("Alaska")
+            $("p").text("Alaska is divided into five regions: far north, interior, southwest, south central, and inside passage. Although it takes a long time to see the entire state, you can travel through the regions by boat, car, bus, or plane. Hike through the mountains, or venture out on a deep sea fishing or whale watching excursion. Get in touch with nature by camping in the wilderness, or experience your preferred degree of class and luxury in the beautiful, active cities of Anchorage and Fairbanks. ")
+            $("#Vienna").text("Alaska, United States")
 
 
         }
@@ -404,7 +415,7 @@ $('#pstart').on('click', function () {
     $('.content').show();
     $('#pstart').remove();
     // $('h1').remove();
-    $('body').css('background-image', 'url("assets/Images/hawaii.jpg")');
+    $('body').css('background-image', 'url("assets/Images/monaco.png")');
 });
 
 // survey submit button event
