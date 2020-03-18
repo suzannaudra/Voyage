@@ -9,6 +9,9 @@
 
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
     <!-- firebase script references -->
     <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
@@ -18,7 +21,7 @@
 
 <body>
     <nav class="navbar navbar-expand-lg fixed-top navbar-trans">
-        <a class="navbar-brand" href="#">Voyage</a>
+        <a class="navbar-brand" href="index.html">Voyage</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -62,7 +65,7 @@
         <!-- start survey -->
         <div class="content row">
 
-            <article class="surveyquestions col-lg-5">
+            <article class="surveyquestions col-lg-5 container">
                 <p class="pt-1" id="surveyHeader">Survey</p>
                 <form class="no-gutters mx-5">
                     <div class="form-group">
@@ -204,13 +207,14 @@
                             </div>
                         </div>
                     </div>
-                    <button id="submit" type="button" class="btn btn-lg btn-light" data-toggle="modal"
+                    <br>
+                    <button id="submit" type="button" class="btn btn-light container" data-toggle="modal"
                         data-target="#results">Submit</button>
                 </form>
 
             </article>
             <!-- images cards -->
-            <aside class="col-lg-7">
+            <aside class="col-lg-7 container">
 
                 <section id="showCase">
                     <div class="card-deck">
@@ -222,8 +226,8 @@
                                 <p class="card-text">This is a city rich in history with amazing architecture.</p>
                             </div>
                             <div class="card-footer">
-                                <small class="text-muted">Vienna, Austria</small>
-                                <a class="btn btn-primary" href="destination.html" role="button">Link</a>
+                                <small>Vienna, Austria</small>
+                                <a class="btn btn-outline-info" href="destination.html" role="button">Visit</a>
                             </div>
                         </div>
                         <div class="card" data-destination="Vail">
@@ -236,8 +240,8 @@
                                     ski town.</p>
                             </div>
                             <div class="card-footer">
-                                <small class="text-muted">Vail,CO</small>
-                                <a class="btn btn-primary" href="destination.html" role="button">Link</a>
+                                <small>Vail,CO</small>
+                                <a class="btn btn-outline-info" href="destination.html" role="button">Visit</a>
                             </div>
                         </div>
                         <div class="card" data-destination="Bahamas">
@@ -250,8 +254,8 @@
                                     Bahamas for some relaxation.</p>
                             </div>
                             <div class="card-footer">
-                                <small class="text-muted">Nassau, Bahamas</small>
-                                <a class="btn btn-primary" href="destination.html" role="button">Link</a>
+                                <small>Nassau, Bahamas</small>
+                                <a class="btn btn-outline-info" href="destination.html" role="button">Visit</a>
                             </div>
                         </div>
 
@@ -268,8 +272,8 @@
                                     relaxing vacation.</p>
                             </div>
                             <div class="card-footer">
-                                <small class="text-muted">San Diego,CA</small>
-                                <a class="btn btn-primary" href="destination.html" role="button">Link</a>
+                                <small>San Diego,CA</small>
+                                <a class="btn btn-outline-info" href="destination.html" role="button">Visit</a>
                             </div>
                         </div>
                         <div class="card" data-destination="Newport">
@@ -282,8 +286,8 @@
                                     coast on or off the water.</p>
                             </div>
                             <div class="card-footer">
-                                <small class="text-muted">Newport,RI</small>
-                                <a class="btn btn-primary" href="destination.html" role="button">Link</a>
+                                <small>Newport,RI</small>
+                                <a class="btn btn-outline-info" href="destination.html" role="button">Visit</a>
                             </div>
                         </div>
                         <div class="card" data-destination="Alaska">
@@ -296,8 +300,8 @@
                                     one of the most beautiful states.</p>
                             </div>
                             <div class="card-footer">
-                                <small class="text-muted">Denali,Alaska</small>
-                                <a class="btn btn-primary" href="destination.html" role="button">Link</a>
+                                <small>Denali,Alaska</small>
+                                <a class="btn btn-outline-info" href="destination.html" role="button">Visit</a>
                             </div>
                         </div>
 
