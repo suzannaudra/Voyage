@@ -1,10 +1,11 @@
 // var city = "Bahamas";
 function getWeather(destination){
+    const weatherApiKey = config.weatherApiKey
     let city = destination;
 
-    $.getJSON("http://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&APPID=8854699e93fb8fa1fd3d91c1753f07b8", function (data) {
+    $.getJSON("http://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&APPID=" + weatherApiKey + "", function (data) {
 
-        // console.log(data);
+        
 
         var icon = "http://openweathermap.org/img/w/" + data.weather[0].icon + ".png";
         var temp = Math.floor(data.main.temp) + "°F";
@@ -16,7 +17,7 @@ function getWeather(destination){
 
     });
 
-    $.getJSON("http://api.openweathermap.org/data/2.5/forecast?q=" + city + "&units=imperial&APPID=8854699e93fb8fa1fd3d91c1753f07b8", function (data) {
+    $.getJSON("http://api.openweathermap.org/data/2.5/forecast?q=" + city + "&units=imperial&APPID=" + weatherApiKey + "", function (data) {
 
         console.log(data);
 
@@ -28,7 +29,7 @@ function getWeather(destination){
             imgTag.attr("src", "http://openweathermap.org/img/w/" + data.list[i].weather[0].icon + ".png");
             divTag.addClass("forecast" + [i]);
             imgTag.html(imgTag);
-            $(".test").append(divTag);
+            $(".weather-forecast").append(divTag);
             $(".forecast" + [i]).append("<span>" + d.toDateString() + "</span>");
             $(".forecast" + [i]).append(imgTag);
             // $(".test").append(imgTag);

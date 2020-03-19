@@ -416,7 +416,7 @@ small {
     color: #FFFFFF;
 }
 
-.test {
+.weather-forecast {
     background-color: rgb(0, 0, 0);
     /* Fallback color */
     background-color: rgba(41, 41, 41, 0.673);
