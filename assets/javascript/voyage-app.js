@@ -40,12 +40,53 @@ const destCoordinates = {
     SanDiego: "32.72,-117.15,50",
     Bahamas: "24.65,-78.04,500",
     Alaska: "61.54,-149.56,500", // Anchorage
-    Newport: "41.50,-71.31,50"
+    Newport: "41.50,-71.31,50",
+    Hawaii: "21.32,-157.82,100" // default
 }
 
-var clickedDestination;
+var map; // user for Google Maps element
 
 // FUNCTIONS -------------
+
+// initialize Google Map element
+function initMap(destination) {
+    console.log("calling initMap");
+    let coors = "";
+    switch(destination) {
+        case "Vail":
+            coors = destCoordinates.Vail
+            break;
+        case "Vienna":
+            coors = destCoordinates.Vienna
+            break;
+        case "San Diego":
+            coors = destCoordinates.SanDiego
+            break;
+        case "Bahamas":
+            coors = destCoordinates.Bahamas
+            break;
+        case "Alaska":
+            coors = destCoordinates.Alaska
+            break;
+        case "Newport":
+            coors = destCoordinates.Newport
+            break;
+        default:
+          coors = destCoordinates.Hawaii
+    }
+
+    map = new google.maps.Map(document.getElementById('google-map'), {
+        center: {lat: Number(coors.split(",")[0]),
+                 lng: Number(coors.split(",")[1])},
+        zoom: 10
+    })
+    
+}
+
+$("#test-map").on("click", function(e){
+    e.preventDefault
+    
+})
 
 // navbar function
 $(function () {
@@ -225,9 +266,6 @@ function checkSurveyRadioButtons() {
 }
 
 
-
-
-
 $(document).ready(function () {
     $('.content').hide();
     $("#webcam-spinner").hide();
@@ -402,6 +440,9 @@ $(document).ready(function () {
 
 
         }
+
+        // call function to initialize and display the Google Map element
+        initMap(destination);
     }
 
 });
@@ -478,7 +519,7 @@ $(".card").on("click", function (e) {
     e.preventDefault;
     // save the clicked card's destination name to sessionStorage, 
     // so it can be retrieved by the destination.html page (otherwise it'll get erased on page load)
-    clickedDestination = $(this).find(".card-title").text().trim();
+    let clickedDestination = $(this).find(".card-title").text().trim();
     sessionStorage.setItem("clickedDestination", clickedDestination);
 });
 
