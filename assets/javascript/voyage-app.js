@@ -314,21 +314,21 @@ $(document).ready(function () {
             let carouselitem4 = $("<div>").attr("class", "carousel-item active");
             let imgitem4 = $("<img>").attr({
                 "class": "d-block w-100",
-                "src": "https://www.donkey.bike/wp-content/uploads/2017/04/What-to-do-in-Vienna-on-a-bike-f.jpg"
+                "src": "https://wallpaperaccess.com/full/156614.jpg"
             });
             carouselitem4.append(imgitem4);
             $('.carousel-inner').append(carouselitem4);
             let carouselitem5 = $("<div>").attr("class", "carousel-item");
             let imgitem5 = $("<img>").attr({
                 "class": "d-block w-100",
-                "src": "https://www.worldtravelguide.net/wp-content/uploads/2017/03/shu-Austria-Vienna-StCharles-420505375-1440x823.jpg"
+                "src": "https://images.wallpapersden.com/image/download/vienna-austria-capital_16962_2560x1440.jpg"
             });
             carouselitem5.append(imgitem5);
             $('.carousel-inner').append(carouselitem5);
             let carouselitem6 = $("<div>").attr("class", "carousel-item");
             let imgitem6 = $("<img>").attr({
                 "class": "d-block w-100",
-                "src": "https://images.panoramatours.com/pt/focus/51/49/1920/960/user_upload/Sehenswuerdigkeiten/Wien/Vienna_Sightseeing_Tours/Historische_Stadtrundfahrt_Wien_-_Schloss_Schoenbrunn_mit_Brunnen__c__Vienna_Sightseeing_Tours_-_Bernhard_Luck.jpg"
+                "src": "https://s1.1zoom.me/b5050/912/Austria_Vienna_Fountains_Sculptures_Belvedere_565326_2560x1440.jpg"
             });
             carouselitem6.append(imgitem6);
             $('.carousel-inner').append(carouselitem6);
@@ -342,21 +342,21 @@ $(document).ready(function () {
             let carouselitem7 = $("<div>").attr("class", "carousel-item active");
             let imgitem7 = $("<img>").attr({
                 "class": "d-block w-100",
-                "src": "https://cdn.theculturetrip.com/wp-content/uploads/2018/10/web_hires_vailresorts_arrabelle_ext3_82581.jpg"
+                "src": "https://cdn.hipwallpaper.com/i/45/53/Zi8JKO.jpg"
             });
             carouselitem7.append(imgitem7);
             $('.carousel-inner').append(carouselitem7);
             let carouselitem8 = $("<div>").attr("class", "carousel-item");
             let imgitem8 = $("<img>").attr({
                 "class": "d-block w-100",
-                "src": "https://akns-images.eonline.com/eol_images/Entire_Site/2014929/rs_1024x732-141029142636-1024.The-Sebastian-Vail-Colorado.jl.102914.jpg"
+                "src": "https://wallpaperaccess.com/full/130547.jpg"
             });
             carouselitem8.append(imgitem8);
             $('.carousel-inner').append(carouselitem8);
             let carouselitem9 = $("<div>").attr("class", "carousel-item");
             let imgitem9 = $("<img>").attr({
                 "class": "d-block w-100",
-                "src": "https://www.movingmountains.com/sites/default/files/uploads/vail_sm.jpg"
+                "src": "https://wallpaperaccess.com/full/130527.jpg"
             });
             carouselitem9.append(imgitem9);
             $('.carousel-inner').append(carouselitem9);
@@ -369,21 +369,21 @@ $(document).ready(function () {
             let carouselitem10 = $("<div>").attr("class", "carousel-item active");
             let imgitem10 = $("<img>").attr({
                 "class": "d-block w-100",
-                "src": "https://www.hotelpalomar-sandiego.com/images/1700-960/istock-833705372-4410d5d4.jpg"
+                "src": "https://images.wallpaperscraft.com/image/san_diego_california_evening_pier_waves_sea_decline_8985_800x600.jpg"
             });
             carouselitem10.append(imgitem10);
             $('.carousel-inner').append(carouselitem10);
             let carouselitem12 = $("<div>").attr("class", "carousel-item");
             let imgitem12 = $("<img>").attr({
                 "class": "d-block w-100",
-                "src": "https://kpbs.media.clients.ellingtoncms.com/img/photos/2020/03/16/Image_from_iOS_1_upsgwF7_t800.jpg?90232451fbcadccc64a17de7521d859a8f88077d"
+                "src": "https://media.farandwide.com/81/c8/81c892124e9d421f8a7598d2a253c7c0.jpg"
             });
             carouselitem12.append(imgitem12);
             $('.carousel-inner').append(carouselitem12);
             let carouselitem11 = $("<div>").attr("class", "carousel-item");
             let imgitem11 = $("<img>").attr({
                 "class": "d-block w-100",
-                "src": "https://media-cdn.tripadvisor.com/media/photo-c/2560x500/14/10/2f/9b/san-diego.jpg"
+                "src": "https://mustlovetraveling.com/wp-content/uploads/2019/06/old-town-san-diego.jpg"
             });
             carouselitem11.append(imgitem11);
             $('.carousel-inner').append(carouselitem11);
@@ -423,14 +423,14 @@ $(document).ready(function () {
             let carouselitem15 = $("<div>").attr("class", "carousel-item active");
             let imgitem15 = $("<img>").attr({
                 "class": "d-block w-100",
-                "src": "https://www.rssc.com/sites/default/files/M37_Mobile_AlaskaDestinationDetail-062119.jpg"
+                "src": "https://www.steppestravel.com/app/uploads/2019/06/glacier-bay-alaska-800x600.jpg"
             });
             carouselitem15.append(imgitem15);
             $('.carousel-inner').append(carouselitem15);
             let carouselitem16 = $("<div>").attr("class", "carousel-item");
             let imgitem16 = $("<img>").attr({
                 "class": "d-block w-100",
-                "src": "https://www.visittheusa.com/sites/default/files/styles/hero_m_1300x700/public/images/hero_media_image/2017-02/Alaska8_Web72DPI_2.jpg?itok=2T1bWB1V"
+                "src": "https://www.wallpapergeeks.com/wp-content/uploads/2013/12/Humpback-Whale-Alaska-Wallpaper-800x600.jpg"
             });
             carouselitem16.append(imgitem16);
             $('.carousel-inner').append(carouselitem16);
