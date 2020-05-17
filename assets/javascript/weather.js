@@ -3,7 +3,7 @@ function getWeather(destination){
     const weatherApiKey = config.weatherApiKey
     let city = destination;
 
-    $.getJSON("http://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&APPID=" + weatherApiKey + "", function (data) {
+    $.getJSON("http://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&APPID=41ec6beaa435602a9c03c106b97ecc5f" + weatherApiKey + "", function (data) {
 
         
 
@@ -17,7 +17,7 @@ function getWeather(destination){
 
     });
 
-    $.getJSON("http://api.openweathermap.org/data/2.5/forecast?q=" + city + "&units=imperial&APPID=" + weatherApiKey + "", function (data) {
+    $.getJSON("http://api.openweathermap.org/data/2.5/forecast?q=" + city + "&units=imperial&APPID="41ec6beaa435602a9c03c106b97ecc5f" + weatherApiKey + "", function (data) {
 
         console.log(data);
 
