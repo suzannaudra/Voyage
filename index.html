@@ -2,369 +2,334 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Voyage</title>
+  <title>Voyage</title>
 
-    <!-- Bootstrap -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
-    <!-- firebase script references -->
-    <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
-    <link rel="stylesheet" href="assets/Style/style.css">
-
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet" />
+  <!-- firebase script references -->
+  <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
+  <link rel="stylesheet" href="assets/Style/style.css" />
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg fixed-top navbar-trans">
-        <a class="navbar-brand" href="index.html">Voyage</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+  <nav class="navbar navbar-expand-lg fixed-top navbar-trans">
+    <a class="navbar-brand" href="index.html">Voyage</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="contact.html">Contact Us</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Our Team Members
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="https://github.com/suzannaudra">Suzann Kowalski</a>
-                        <a class="dropdown-item" href="https://github.com/broken-guitar">David Flores</a>
-                        <a class="dropdown-item" href="https://github.com/thuynguyen-nht">Thuy Nguyen</a>
-                        <a class="dropdown-item" href="https://github.com/SandeshCharka">Sandesh Charka</a>
-
-                    </div>
-                </li>
-
-            </ul>
-
-        </div>
-    </nav>
-    <div class="home">
-        <!-- front page -->
-        <div id="welcome">
-
-            <h1>What type of voyage would you like to take?</h1>
-            <br>
-            <br>
-            <button class="btn btn-danger rounded-pill" id="pstart"> Begin your journey! </button>
-        </div>
-        <!-- start survey -->
-        <div class="content row">
-
-            <article class="surveyquestions col-lg-5 container">
-                <p class="pt-1" id="surveyHeader">Survey</p>
-                <form class="no-gutters mx-5">
-                    <div class="form-group">
-                        <h6 class="question"> What type of vacation are you interested in?</h6>
-                        <div class="row text-left">
-                            <div class="form-check col-md">
-                                <input class="form-check-input" type="radio" name="options1" id="q1-adventure"
-                                    value="options1">
-                                <label class="form-check-label" for="options1">Adventure</label>
-                            </div>
-                            <div class="form-check col-md">
-                                <input class="form-check-input" type="radio" name="options1" id="q1-relaxation"
-                                    value="options1">
-                                <label class="form-check-label" for="options1">Relaxation</label>
-                            </div>
-                            <div class="form-check col-md">
-                                <input class="form-check-input" type="radio" name="options1" id="q1-combo"
-                                    value="options1">
-                                <label class="form-check-label" for="options1">Combine Adventure and Relaxation</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <h6 class="question"> What type of climate do you prefer for your voyage?</h6>
-                        <div class="row text-left">
-
-                            <div class="form-check col-md">
-                                <input class="form-check-input" type="radio" name="options2" id="q2-sunshine"
-                                    value="options2">
-                                <label class="form-check-label" for="options2">Sunshine</label>
-                            </div>
-                            <div class="form-check col-md">
-                                <input class="form-check-input" type="radio" name="options2" id="q2-snow"
-                                    value="options2">
-                                <label class="form-check-label" for="options2">Snow</label>
-                            </div>
-                            <div class="form-check col-md">
-                                <input class="form-check-input" type="radio" name="options2" id="q2-combo"
-                                    value="options2">
-                                <label class="form-check-label" for="options2">Warm Weather</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <h6 class="question"> What type of voyage sound ideal?</h6>
-                        <div class="row text-left">
-
-                            <div class="form-check col-md">
-                                <input class="form-check-input" type="radio" name="options3" id="q3-beach"
-                                    value="options3">
-                                <label class="form-check-label" for="options3">Beach</label>
-                            </div>
-                            <div class="form-check col-md">
-                                <input class="form-check-input" type="radio" name="options3" id="q3-skislopes"
-                                    value="options3">
-                                <label class="form-check-label" for="options3">Ski Slopes</label>
-                            </div>
-                            <div class="form-check col-md">
-                                <input class="form-check-input" type="radio" name="options3" id="q3-hiking"
-                                    value="options3">
-                                <label class="form-check-label" for="options3">Hiking in the Wilderness</label>
-                            </div>
-                            <div class="form-check col-md">
-                                <input class="form-check-input" type="radio" name="options3" id="q3-explorecity"
-                                    value="options3">
-                                <label class="form-check-label" for="options3">Exploring City Life</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <h6 class="question"> What type of voyage sound ideal?</h6>
-                        <div class="row text-left">
-
-                            <div class="form-check col-md">
-                                <input class="form-check-input" type="radio" name="options4" id="q4-historical"
-                                    value="options4">
-                                <label class="form-check-label" for="options4">Learning
-                                    about
-                                    and
-                                    seeing
-                                    historical sights</label>
-                            </div>
-                            <div class="form-check col-md">
-                                <input class="form-check-input" type="radio" name="options4" id="q4-atv"
-                                    value="options4">
-                                <label class="form-check-label" for="options4">Action adventures
-                                    exploring
-                                    on ATV's</label>
-                            </div>
-                            <div class="form-check col-md">
-                                <input class="form-check-input" type="radio" name="options4" id="q4-pool"
-                                    value="options4">
-                                <label class="form-check-label" for="options4">Sitting by the
-                                    pool,
-                                    soaking up the sun, and maybe getting a massage</label>
-                            </div>
-                            <div class="form-check col-md">
-                                <input class="form-check-input" type="radio" name="options4" id="q4-nightlife"
-                                    value="options4">
-                                <label class="form-check-label" for="options4">Epic
-                                    Nightlife:
-                                    Dancing,
-                                    Drinking, and Partying!</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <h6 class="question"> How far are you willing to travel?</h6>
-                        <div class="row text-left">
-
-                            <div class="form-check col-md">
-                                <input class="form-check-input" type="radio" name="options5" id="q4-historical"
-                                    value="options5">
-                                <label class="form-check-label" for="options5">Learning
-                                    Short
-                                    Flight
-                                    less
-                                    than 5 hours</label>
-                            </div>
-                            <div class="form-check col-md">
-                                <input class="form-check-input" type="radio" name="options5" id="q4-atv"
-                                    value="options5">
-                                <label class="form-check-label" for="options5">Across
-                                    the
-                                    country
-                                    more than 5 hours</label>
-                            </div>
-                            <div class="form-check col-md">
-                                <input class="form-check-input" type="radio" name="options5" id="q4-pool"
-                                    value="options5">
-                                <label class="form-check-label" for="options5">Acrose
-                                    the
-                                    world</label>
-                            </div>
-                            <div class="form-check col-md">
-                                <input class="form-check-input" type="radio" name="options5" id="q4-nightlife"
-                                    value="options5">
-                                <label class="form-check-label" for="options5">Anywhere</label>
-                            </div>
-                        </div>
-                    </div>
-                    <br>
-                    <button id="submit" type="button" class="btn btn-light container" data-toggle="modal"
-                        data-target="#results">Submit</button>
-                </form>
-
-            </article>
-            <!-- images cards -->
-            <aside class="col-lg-7 container">
-
-                <section id="showCase">
-                    <div class="card-deck">
-                        <div class="card" data-destination="Vienna">
-                            <img src="assets/Images/Vienna.jpeg" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Vienna</h5>
-                                <p class="card-text">This is a city rich in history with amazing architecture.</p>
-                            </div>
-                            <div class="card-footer">
-                                <small>Vienna, Austria</small>
-                                <a class="btn btn-outline-info" href="destination.html" role="button">Visit</a>
-                            </div>
-                        </div>
-                        <div class="card" data-destination="Vail">
-                            <img src="https://akns-images.eonline.com/eol_images/Entire_Site/2014929/rs_1024x732-141029142636-1024.The-Sebastian-Vail-Colorado.jl.102914.jpg"
-                                class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Vail</h5>
-                                <p class="card-text">Is the sun too much for you? Need some snow? Hit the slopes in a
-                                    premier
-                                    ski town.</p>
-                            </div>
-                            <div class="card-footer">
-                                <small>Vail,CO</small>
-                                <a class="btn btn-outline-info" href="destination.html" role="button">Visit</a>
-                            </div>
-                        </div>
-                        <div class="card" data-destination="Bahamas">
-                            <img src="assets/Images/Bahamas.jpeg" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Bahamas</h5>
-                                <p class="card-text">Sun, Surf, and Sand. Hit the beachs and the crystal blue water of
-                                    the
-                                    Bahamas for some relaxation.</p>
-                            </div>
-                            <div class="card-footer">
-                                <small>Nassau, Bahamas</small>
-                                <a class="btn btn-outline-info" href="destination.html" role="button">Visit</a>
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <div class="card-deck">
-                        <div class="card" data-destination="SanDiego">
-                            <img src="https://www.hotelpalomar-sandiego.com/images/1700-960/istock-833705372-4410d5d4.jpg"
-                                class="card-img-top" alt="San Diego,CA">
-                            <div class="card-body">
-                                <h5 class="card-title">San Diego</h5>
-                                <p class="card-text">This busling surf city has local charm and plenty of beach vibes
-                                    for a
-                                    relaxing vacation.</p>
-                            </div>
-                            <div class="card-footer">
-                                <small>San Diego,CA</small>
-                                <a class="btn btn-outline-info" href="destination.html" role="button">Visit</a>
-                            </div>
-                        </div>
-                        <div class="card" data-destination="Newport">
-                            <img src="https://luggageandlipstick.com/wp-content/uploads/2019/07/0-newport_Patti-Morrow_luggageandlipstick.com_8146b8fd7e_b.jpg"
-                                class="card-img-top" alt="Newport,RI">
-                            <div class="card-body">
-                                <h5 class="card-title">Newport</h5>
-                                <p class="card-text">Rhode Island is rich in history and offers many scenic adventures
-                                    along the
-                                    coast on or off the water.</p>
-                            </div>
-                            <div class="card-footer">
-                                <small>Newport,RI</small>
-                                <a class="btn btn-outline-info" href="destination.html" role="button">Visit</a>
-                            </div>
-                        </div>
-                        <div class="card" data-destination="Alaska">
-                            <img src="https://lp-cms-production.imgix.net/2019-06/faaeff03e004f2fc756e8492a4959929-denali-national-park-preserve.jpg?fit=crop&q=40&sharp=10&vib=20&auto=format&ixlib=react-8.6.4"
-                                class="card-img-top" alt="Denali,Alaska">
-                            <div class="card-body">
-                                <h5 class="card-title">Alaska</h5>
-                                <p class="card-text">This state is full of nature and wildlife. Explore the great
-                                    outdoors in
-                                    one of the most beautiful states.</p>
-                            </div>
-                            <div class="card-footer">
-                                <small>Denali,Alaska</small>
-                                <a class="btn btn-outline-info" href="destination.html" role="button">Visit</a>
-                            </div>
-                        </div>
-
-                    </div>
-                </section>
-            </aside>
-        </div>
-
-
-        <!-- Modal -->
-        <div class="modal fade" id="results" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-            aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalCenterTitle">These destinations are for you!</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <div class="card">
-                                    <div class="card">
-                                        <img id="winner1" src="#" class="card-img-top" alt="...">
-                                        <div class="card-body">
-                                            <a class="card-title" id="winner1Text" href="destination.html">Bahamas</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="card">
-                                    <div class="card">
-                                        <img id="winner2" src="#" class="card-img-top" alt="...">
-                                        <div class="card-body">
-                                            <a class="card-title" id="winner2Text" href="destination.html">Bahamas</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="contact.html">Contact Us</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Our Team Members
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="https://github.com/suzannaudra">Suzann Kowalski</a>
+            <a class="dropdown-item" href="https://github.com/broken-guitar">David Flores</a>
+            <a class="dropdown-item" href="https://github.com/thuynguyen-nht">Thuy Nguyen</a>
+            <a class="dropdown-item" href="https://github.com/SandeshCharka">Sandesh Charka</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <div class="home">
+    <!-- front page -->
+    <div id="welcome">
+      <h1>What type of voyage would you like to take?</h1>
+      <br />
+      <br />
+      <button class="btn btn-danger rounded-pill" id="pstart">
+        Begin your journey!
+      </button>
+    </div>
+    <!-- start survey -->
+    <div id="main-content" class="content row">
+      <article class="surveyquestions col-lg-5 container">
+        <p class="pt-1" id="surveyHeader">Survey</p>
+        <form class="no-gutters mx-5">
+          <div class="form-group">
+            <h6 class="question">
+              What type of vacation are you interested in?
+            </h6>
+            <div class="row text-left">
+              <div class="form-check col-md">
+                <input class="form-check-input" type="radio" name="options1" id="q1-adventure" value="options1" />
+                <label class="form-check-label" for="options1">Adventure</label>
+              </div>
+              <div class="form-check col-md">
+                <input class="form-check-input" type="radio" name="options1" id="q1-relaxation" value="options1" />
+                <label class="form-check-label" for="options1">Relaxation</label>
+              </div>
+              <div class="form-check col-md">
+                <input class="form-check-input" type="radio" name="options1" id="q1-combo" value="options1" />
+                <label class="form-check-label" for="options1">Combine Adventure and Relaxation</label>
+              </div>
             </div>
-        </div>
+          </div>
+          <div class="form-group">
+            <h6 class="question">
+              What type of climate do you prefer for your voyage?
+            </h6>
+            <div class="row text-left">
+              <div class="form-check col-md">
+                <input class="form-check-input" type="radio" name="options2" id="q2-sunshine" value="options2" />
+                <label class="form-check-label" for="options2">Sunshine</label>
+              </div>
+              <div class="form-check col-md">
+                <input class="form-check-input" type="radio" name="options2" id="q2-snow" value="options2" />
+                <label class="form-check-label" for="options2">Snow</label>
+              </div>
+              <div class="form-check col-md">
+                <input class="form-check-input" type="radio" name="options2" id="q2-combo" value="options2" />
+                <label class="form-check-label" for="options2">Warm Weather</label>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <h6 class="question">What type of voyage sound ideal?</h6>
+            <div class="row text-left">
+              <div class="form-check col-md">
+                <input class="form-check-input" type="radio" name="options3" id="q3-beach" value="options3" />
+                <label class="form-check-label" for="options3">Beach</label>
+              </div>
+              <div class="form-check col-md">
+                <input class="form-check-input" type="radio" name="options3" id="q3-skislopes" value="options3" />
+                <label class="form-check-label" for="options3">Ski Slopes</label>
+              </div>
+              <div class="form-check col-md">
+                <input class="form-check-input" type="radio" name="options3" id="q3-hiking" value="options3" />
+                <label class="form-check-label" for="options3">Hiking in the Wilderness</label>
+              </div>
+              <div class="form-check col-md">
+                <input class="form-check-input" type="radio" name="options3" id="q3-explorecity" value="options3" />
+                <label class="form-check-label" for="options3">Exploring City Life</label>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <h6 class="question">What type of voyage sound ideal?</h6>
+            <div class="row text-left">
+              <div class="form-check col-md">
+                <input class="form-check-input" type="radio" name="options4" id="q4-historical" value="options4" />
+                <label class="form-check-label" for="options4">Learning about and seeing historical sights</label>
+              </div>
+              <div class="form-check col-md">
+                <input class="form-check-input" type="radio" name="options4" id="q4-atv" value="options4" />
+                <label class="form-check-label" for="options4">Action adventures exploring on ATV's</label>
+              </div>
+              <div class="form-check col-md">
+                <input class="form-check-input" type="radio" name="options4" id="q4-pool" value="options4" />
+                <label class="form-check-label" for="options4">Sitting by the pool, soaking up the sun, and maybe
+                  getting
+                  a massage</label>
+              </div>
+              <div class="form-check col-md">
+                <input class="form-check-input" type="radio" name="options4" id="q4-nightlife" value="options4" />
+                <label class="form-check-label" for="options4">Epic Nightlife: Dancing, Drinking, and Partying!</label>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <h6 class="question">How far are you willing to travel?</h6>
+            <div class="row text-left">
+              <div class="form-check col-md">
+                <input class="form-check-input" type="radio" name="options5" id="q4-historical" value="options5" />
+                <label class="form-check-label" for="options5">Learning Short Flight less than 5 hours</label>
+              </div>
+              <div class="form-check col-md">
+                <input class="form-check-input" type="radio" name="options5" id="q4-atv" value="options5" />
+                <label class="form-check-label" for="options5">Across the country more than 5 hours</label>
+              </div>
+              <div class="form-check col-md">
+                <input class="form-check-input" type="radio" name="options5" id="q4-pool" value="options5" />
+                <label class="form-check-label" for="options5">Acrose the world</label>
+              </div>
+              <div class="form-check col-md">
+                <input class="form-check-input" type="radio" name="options5" id="q4-nightlife" value="options5" />
+                <label class="form-check-label" for="options5">Anywhere</label>
+              </div>
+            </div>
+          </div>
+          <br />
+          <button id="submit" type="button" class="btn btn-light container" data-toggle="modal" data-target="#results">
+            Submit
+          </button>
+        </form>
+      </article>
+      <!-- images cards -->
+      <aside class="col-lg-7 container">
+        <section id="showCase">
+          <div class="card-deck">
+            <div class="card" data-destination="Vienna">
+              <img src="assets/Images/Vienna.jpeg" class="card-img-top" alt="..." />
+              <div class="card-body">
+                <h5 class="card-title">Vienna</h5>
+                <p class="card-text">
+                  This is a city rich in history with amazing architecture.
+                </p>
+              </div>
+              <div class="card-footer">
+                <small>Vienna, Austria</small>
+                <a class="btn btn-outline-info" href="destination.html" role="button">Visit</a>
+              </div>
+            </div>
+            <div class="card" data-destination="Vail">
+              <img
+                src="https://akns-images.eonline.com/eol_images/Entire_Site/2014929/rs_1024x732-141029142636-1024.The-Sebastian-Vail-Colorado.jl.102914.jpg"
+                class="card-img-top" alt="..." />
+              <div class="card-body">
+                <h5 class="card-title">Vail</h5>
+                <p class="card-text">
+                  Is the sun too much for you? Need some snow? Hit the slopes
+                  in a premier ski town.
+                </p>
+              </div>
+              <div class="card-footer">
+                <small>Vail,CO</small>
+                <a class="btn btn-outline-info" href="destination.html" role="button">Visit</a>
+              </div>
+            </div>
+            <div class="card" data-destination="Bahamas">
+              <img src="assets/Images/Bahamas.jpeg" class="card-img-top" alt="..." />
+              <div class="card-body">
+                <h5 class="card-title">Bahamas</h5>
+                <p class="card-text">
+                  Sun, Surf, and Sand. Hit the beachs and the crystal blue
+                  water of the Bahamas for some relaxation.
+                </p>
+              </div>
+              <div class="card-footer">
+                <small>Nassau, Bahamas</small>
+                <a class="btn btn-outline-info" href="destination.html" role="button">Visit</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="card-deck">
+            <div class="card" data-destination="SanDiego">
+              <img src="https://www.hotelpalomar-sandiego.com/images/1700-960/istock-833705372-4410d5d4.jpg"
+                class="card-img-top" alt="San Diego,CA" />
+              <div class="card-body">
+                <h5 class="card-title">San Diego</h5>
+                <p class="card-text">
+                  This busling surf city has local charm and plenty of beach
+                  vibes for a relaxing vacation.
+                </p>
+              </div>
+              <div class="card-footer">
+                <small>San Diego,CA</small>
+                <a class="btn btn-outline-info" href="destination.html" role="button">Visit</a>
+              </div>
+            </div>
+            <div class="card" data-destination="Newport">
+              <img
+                src="https://luggageandlipstick.com/wp-content/uploads/2019/07/0-newport_Patti-Morrow_luggageandlipstick.com_8146b8fd7e_b.jpg"
+                class="card-img-top" alt="Newport,RI" />
+              <div class="card-body">
+                <h5 class="card-title">Newport</h5>
+                <p class="card-text">
+                  Rhode Island is rich in history and offers many scenic
+                  adventures along the coast on or off the water.
+                </p>
+              </div>
+              <div class="card-footer">
+                <small>Newport,RI</small>
+                <a class="btn btn-outline-info" href="destination.html" role="button">Visit</a>
+              </div>
+            </div>
+            <div class="card" data-destination="Alaska">
+              <img
+                src="https://lp-cms-production.imgix.net/2019-06/faaeff03e004f2fc756e8492a4959929-denali-national-park-preserve.jpg?fit=crop&q=40&sharp=10&vib=20&auto=format&ixlib=react-8.6.4"
+                class="card-img-top" alt="Denali,Alaska" />
+              <div class="card-body">
+                <h5 class="card-title">Alaska</h5>
+                <p class="card-text">
+                  This state is full of nature and wildlife. Explore the great
+                  outdoors in one of the most beautiful states.
+                </p>
+              </div>
+              <div class="card-footer">
+                <small>Denali,Alaska</small>
+                <a class="btn btn-outline-info" href="destination.html" role="button">Visit</a>
+              </div>
+            </div>
+          </div>
+        </section>
+      </aside>
     </div>
 
-    <!-- script links -->
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
-    </script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
-    </script>
+    <!-- Modal -->
+    <div class="modal fade" id="results" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+      aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalCenterTitle">
+              These destinations are for you!
+            </h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-sm-6">
+                <div class="card">
+                  <div class="card">
+                    <img id="winner1" src="#" class="card-img-top" alt="..." />
+                    <div class="card-body">
+                      <a class="card-title" id="winner1Text" href="destination.html">Bahamas</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="card">
+                  <div class="card">
+                    <img id="winner2" src="#" class="card-img-top" alt="..." />
+                    <div class="card-body">
+                      <a class="card-title" id="winner2Text" href="destination.html">Bahamas</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
-    </script>
-    <script type="text/javascript" src="assets/javascript/config.js"></script>
-    <script type="text/javascript" src="assets/javascript/voyage-app.js"></script>
-    <script type="text/javascript" src="assets/javascript/weather.js"></script>
+  <!-- script links -->
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+    crossorigin="anonymous"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript" src="assets/javascript/config.js"></script>
+  <script type="text/javascript" src="assets/javascript/voyage-app.js"></script>
+  <script type="text/javascript" src="assets/javascript/weather.js"></script>
 </body>
 
 </html>

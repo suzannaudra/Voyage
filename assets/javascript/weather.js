@@ -1,11 +1,11 @@
 // var city = "Bahamas";
-function getWeather(destination){
+function getWeather(destination) {
     const weatherApiKey = config.weatherApiKey
     let city = destination;
 
     $.getJSON("http://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&APPID=" + weatherApiKey + "", function (data) {
 
-        
+
 
         var icon = "http://openweathermap.org/img/w/" + data.weather[0].icon + ".png";
         var temp = Math.floor(data.main.temp) + "°F";
@@ -19,7 +19,7 @@ function getWeather(destination){
 
     $.getJSON("http://api.openweathermap.org/data/2.5/forecast?q=" + city + "&units=imperial&APPID=" + weatherApiKey + "", function (data) {
 
-        console.log(data);
+        // console.log(data);
 
         for (var i = 0; i < 41; i += 7) {
             var divTag = $("<div>");
